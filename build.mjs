@@ -22,7 +22,8 @@ const cta = (label, extra = '') => link
   : `<span class="btn btn-off${extra}" aria-disabled="true">${esc(state.label)}${priceTag}</span>`;
 const orderForm = () => `<form id="order-form" class="order-form" data-packeta-key="${esc(shipping.packetaWidgetKey)}" data-price="${p.price}" data-shipping="${shipping.price}">
         <div class="of-row"><label for="order-quantity">Počet kusů</label><select id="order-quantity" name="quantity">${Array.from({ length: shipping.maxQuantity }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}</select></div>
-        <div class="pickup"><p class="pickup-title">Zásilkovna na výdejní místo nebo do Z-BOXu · ${czPrice(shipping.price)}</p><p class="pickup-selected" id="pickup-selected" aria-live="polite">Výdejní místo zatím není vybrané.</p><button type="button" class="pickup-button" id="pickup-button" data-change="Změnit výdejní místo">Vybrat výdejní místo</button></div>
+        <div class="pickup"><p class="pickup-title">Zásilkovna na výdejní místo nebo do Z-BOXu</p><p class="pickup-selected" id="pickup-selected" aria-live="polite">Výdejní místo zatím není vybrané.</p><button type="button" class="pickup-button" id="pickup-button" data-change="Změnit výdejní místo">Vybrat výdejní místo</button></div>
+        <p class="order-shipping">Doprava Zásilkovnou <span>${czPrice(shipping.price)}</span></p>
         <p class="order-total">Celkem k úhradě <strong id="order-total">${czPrice(p.price + shipping.price)}</strong></p>
         <label class="consent"><input name="terms" type="checkbox" required><span>Souhlasím s <button type="button" class="inline-link" data-legal="terms">obchodními podmínkami</button> a beru na vědomí <button type="button" class="inline-link" data-legal="privacy">informace o zpracování osobních údajů</button>.</span></label>
         <button class="btn" type="submit">${state.label === 'Objednat předem' ? 'Objednat předem a zaplatit' : 'Objednat a zaplatit'}</button>
@@ -49,7 +50,7 @@ const values = {
   canonical: config.siteUrl ? `<link rel="canonical" href="${esc(config.siteUrl)}/">\n<meta property="og:url" content="${esc(config.siteUrl)}/">` : '',
   schema: JSON.stringify(schema).replace(/</g, '\\u003c'),
   price,
-  priceBlock: price ? `<div class="price"><b>${price}</b><span>včetně DPH</span></div>${ready ? `<p class="ship-note">+ doprava Zásilkovnou ${czPrice(shipping.price)}</p>` : ''}` : '',
+  priceBlock: price ? `<div class="price"><b>${price}</b><span>včetně DPH</span></div>` : '',
   specs: esc(`${p.binding} · ${p.pages} stran · ${p.format}`).replace(/ × /g, '&nbsp;×&nbsp;').replace(/ mm/g, '&nbsp;mm'),
   statusShort: esc(state.short),
   offerNote,

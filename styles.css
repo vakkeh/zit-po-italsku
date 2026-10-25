@@ -158,7 +158,6 @@ nav a:hover{opacity:1;color:var(--sea)}
 .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px}
 .price b{font-family:var(--display);font-size:clamp(60px,7vw,76px);font-weight:600;line-height:1;white-space:nowrap}
 .price span{color:var(--ink);opacity:.75;font-size:15px}
-.ship-note{margin:0 0 6px;color:var(--ink);opacity:.75;font-size:16px}
 .specs{font-size:15px;opacity:.8}
 .offer .note{margin:22px 0 30px;max-width:440px}
 .pay{margin-top:18px;font-size:14px;opacity:.8}
@@ -370,6 +369,8 @@ footer nav button:hover{color:var(--cream)}
 .order-form:not(.has-point) .pickup-selected{font-family:var(--body);font-size:15px;font-weight:330;color:var(--soft)}
 .pickup-button{margin-top:10px;background:none;border:0;padding:2px 0;font:inherit;font-size:15px;color:var(--sea);border-bottom:1px solid var(--coral);cursor:pointer}
 .pickup-button:hover{color:var(--coral)}
+.order-shipping{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:-6px;font-size:16px;color:var(--soft)}
+.order-shipping span{font-variant-numeric:tabular-nums;color:var(--ink)}
 .order-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:16px}
 .order-total strong{font-family:var(--display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--soft)}
