@@ -41,12 +41,12 @@ export function checkoutParams(input, { baseUrl, number, env = {}, cfg = config 
   return params;
 }
 
-export async function handleCheckout(request, env, fetchImpl = fetch) {
+export async function handleCheckout(request, env, fetchImpl = fetch, cfg) {
   if (request.method !== 'POST') return json({ error: 'Použijte POST.' }, 405);
   let input;
   try { input = await request.json(); } catch { return json({ error: 'Neplatný požadavek.' }, 400); }
   try {
-    const params = checkoutParams(input, { baseUrl: new URL(request.url).origin, number: orderNumber(), env });
+    const params = checkoutParams(input, { baseUrl: new URL(request.url).origin, number: orderNumber(), env, ...(cfg ? { cfg } : {}) });
     const session = await stripeApi(env.STRIPE_SECRET_KEY, 'checkout/sessions', params, fetchImpl);
     return json({ url: session.url });
   } catch (error) {

@@ -1,0 +1,178 @@
+<!-- Šablona hlavní stránky. Texty upravujte tady, cenu, dostupnost a odkazy v config.mjs. Pak: npm run build -->
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Žít po italsku · Linda Valešová</title>
+<meta name="description" content="Kniha Lindy Valešové o umění zpomalit. Jeden italský den, který si můžete prožít kdekoli: káva vsedě, oběd, který nikam nespěchá, a večer, kdy nemusíte nic.">
+<meta name="theme-color" content="#FFF3DF">
+<meta property="og:type" content="book">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Žít po italsku · Linda Valešová">
+<meta property="og:description" content="Umění zpomalit, cítit a opravdu žít. I tam, kde zrovna jste.">
+<meta property="og:image" content="{{siteUrl}}/assets/obalka.webp">
+<meta property="og:image:alt" content="Obálka knihy Žít po italsku s ilustrací italského pobřeží">
+<meta name="twitter:card" content="summary_large_image">
+{{canonical}}
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+<script type="application/ld+json">{{schema}}</script>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<header>
+  <div class="wrap head">
+    <a class="logo" href="#">Žít po italsku</a>
+    <nav aria-label="Navigace"><a href="#den">Italský den</a><a href="#obsah" data-toc>Obsah</a><a href="#autorka">Autorka</a><a href="#otazky">Otázky</a></nav>
+    {{ctaHeader}}
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="titul">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="label tag" style="position:relative;z-index:2">nová kniha Lindy Valešové</p>
+    <h1 id="titul"><span class="w">Žít</span> <span class="nw"><span class="w"><em>po</em></span> <span class="w"><em>italsku</em></span></span></h1>
+    <div class="scene">
+      <p class="lead">Umění zpomalit, cítit a&nbsp;opravdu žít. I&nbsp;tam, kde zrovna jste.</p>
+      <div class="book"><img src="assets/obalka.webp" width="512" height="800" alt="Obálka knihy Žít po italsku: slunné pobřeží, olivovníky a rozkvetlá louka" fetchpriority="high"><img class="refl" src="assets/obalka.webp" width="512" height="800" alt="" aria-hidden="true"></div>
+      <div class="buybox">
+        {{ctaHero}}
+        <p>{{statusShort}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="sea"><canvas aria-hidden="true"></canvas><div class="sea-cta">{{ctaHeroSea}}</div><p class="trust"><span>Karta, Apple Pay, Google Pay</span><span>Doručení po celé ČR</span><span>14 dní na vrácení</span></p><svg class="shore foam" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26Q180 8 360 26T720 26T1080 26T1440 26T1800 26T2160 26T2520 26T2880 26V60H0z" fill="currentColor"/></svg><svg class="shore sand" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34Q240 18 480 34T960 34T1440 34T1920 34T2400 34T2880 34V60H0z" fill="currentColor"/></svg></div>
+</section>
+
+<section class="day" id="den" aria-labelledby="jeden-den">
+  <div class="wrap day-intro reveal">
+    <h2 id="jeden-den">Italský den, kdekoli jste</h2>
+    <p>Kniha nevede na dovolenou. Vede do vašeho obyčejného úterý a&nbsp;ukazuje, jak ho prožít pomaleji, chutněji a&nbsp;víc po svém.</p>
+  </div>
+  <div class="wrap story">
+    <div class="frame" aria-hidden="true">
+      <img class="on" src="assets/ranni-kava.webp" width="640" height="800" alt="">
+      <img src="assets/u-stolu.webp" width="640" height="800" alt="" loading="lazy">
+      <img src="assets/chvile-pro-sebe.webp" width="640" height="800" alt="" loading="lazy">
+    </div>
+    <div class="steps">
+      <article class="step on" data-step="0" data-time="8:00" data-tone="#FFF1D8">
+        <img src="assets/ranni-kava.webp" width="640" height="800" loading="lazy" alt="Ilustrace ženy s kávou u stolku pod citroníkem">
+        <time>8:00</time>
+        <h3>Ráno, které určuje den</h3>
+        <p>Otevřít okno. Vypít kávu vsedě a&nbsp;bez telefonu. Nechat první minuty dne patřit jen vám, než si je vezme svět.</p>
+        <p class="ch">z&nbsp;kapitoly Ráno, které určuje den</p>
+      </article>
+      <article class="step" data-step="1" data-time="13:00" data-tone="#E6F1EC">
+        <img src="assets/u-stolu.webp" width="640" height="800" loading="lazy" alt="Ilustrace společného oběda na terase nad mořem">
+        <time>13:00</time>
+        <h3>Oběd, který nikam nespěchá</h3>
+        <p>Sednout si ke stolu. Ochutnat. Být spolu. Italové vědí, že jídlo není pauza mezi prací, ale to, kvůli čemu se pracuje.</p>
+        <p class="ch">z&nbsp;kapitoly Jídlo jako rituál, ne jako povinnost</p>
+      </article>
+      <article class="step" data-step="2" data-time="19:30" data-tone="#FBDCC6">
+        <img src="assets/chvile-pro-sebe.webp" width="640" height="800" loading="lazy" alt="Ilustrace ženy s knihou na lehátku při západu slunce">
+        <time>19:30</time>
+        <h3>Il dolce far niente</h3>
+        <p>Sladké nicnedělání. Chvíle, kdy nic nemusíte, a&nbsp;přesto je to ten nejlepší čas dne. Bez výčitek, bez seznamu úkolů.</p>
+        <p class="ch">z&nbsp;kapitoly Il dolce far niente</p>
+      </article>
+    </div>
+    <div class="dots"><button type="button" class="on" aria-label="Ráno, 8:00"></button><button type="button" aria-label="Oběd, 13:00"></button><button type="button" aria-label="Večer, 19:30"></button></div>
+  </div>
+  <div class="wrap ov-line reveal" id="obsah">
+    <p class="ov-sentence">A&nbsp;dalších třináct kapitol o&nbsp;práci, odpočinku, rodině, samotě i&nbsp;domově.</p>
+    <button class="toc-link" type="button" data-toc>Prolistovat obsah</button>
+  </div>
+</section>
+
+<section class="quote" aria-label="Ukázka z knihy">
+  <canvas aria-hidden="true"></canvas>
+  <svg class="shore foam top" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34Q180 52 360 34T720 34T1080 34T1440 34T1800 34T2160 34T2520 34T2880 34V0H0z" fill="currentColor"/></svg><svg class="shore sand top" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26Q240 42 480 26T960 26T1440 26T1920 26T2400 26T2880 26V0H0z" fill="currentColor"/></svg>
+  <div class="wrap reveal">
+    <blockquote>„Vaše italská cesta nezačíná v&nbsp;Itálii. Začíná ve chvíli, kdy se rozhodnete žít jinak.“</blockquote>
+    <cite>Linda Valešová</cite>
+  </div>
+  <svg class="shore foam" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26Q180 8 360 26T720 26T1080 26T1440 26T1800 26T2160 26T2520 26T2880 26V60H0z" fill="currentColor"/></svg><svg class="shore sand cream" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34Q240 18 480 34T960 34T1440 34T1920 34T2400 34T2880 34V60H0z" fill="currentColor"/></svg>
+</section>
+
+<section class="wrap author" id="autorka" aria-labelledby="linda">
+  <div class="portrait reveal"><img src="assets/italska-ulicka.webp" width="800" height="1000" loading="lazy" alt="Ilustrace ženy v italské uličce s výhledem na moře"></div>
+  <div class="reveal">
+    <h2 id="linda">Linda Valešová</h2>
+    <p class="big">Itálie pro ni začala jako láska. Stala se cestou zpátky k&nbsp;sobě.</p>
+    <p>Italštině a&nbsp;italské kultuře se věnuje přes třináct let. Našla v&nbsp;nich víc než krásná místa a&nbsp;nový jazyk: jiný pohled na čas, vztahy, práci i&nbsp;radost z&nbsp;obyčejných dní.</p>
+    <p>Kniha vznikla z&nbsp;ranních káv, dlouhých obědů a&nbsp;rozhovorů, které nikam nespěchaly. V&nbsp;projektu Objev Itálii pomáhá ostatním přenést si kus téhle lehkosti domů.</p>
+{{projectLink}}  </div>
+</section>
+
+<section class="wrap faq" id="otazky" aria-labelledby="dotazy">
+  <h2 id="dotazy" class="reveal">Na co se lidé ptají</h2>
+  <div class="reveal">
+    <details><summary>Jak zaplatím?</summary><p>Kartou, přes Apple Pay nebo Google Pay. Platba proběhne na zabezpečené stránce Stripe a&nbsp;údaje o&nbsp;vaší kartě k&nbsp;nám vůbec nedorazí.</p></details>
+    <details><summary>Kdy kniha dorazí?</summary><p>{{faqDelivery}}</p></details>
+    <details><summary>Můžu knihu poslat jako dárek?</summary><p>Samozřejmě. Při platbě stačí vyplnit adresu toho, komu má kniha udělat radost.</p></details>
+    <details><summary>Co když mi kniha nesedne?</summary><p>Do 14 dnů od převzetí ji můžete vrátit a&nbsp;peníze vám pošleme zpátky.</p></details>
+  </div>
+</section>
+
+<section class="offer" id="objednat" aria-labelledby="koupit">
+  <div class="wrap offer-grid">
+    <div class="offer-copy reveal">
+      <h2 id="koupit">Italská lehkost začíná první stránkou</h2>
+      {{priceBlock}}
+      <p class="specs">{{specs}}</p>
+      <p class="note">{{offerNote}}</p>
+      {{ctaOffer}}
+      <p class="pay">{{payNote}}</p>
+    </div>
+    <div class="offer-scene">
+      <div class="book"><img src="assets/obalka.webp" width="512" height="800" loading="lazy" alt="Obálka knihy Žít po italsku"><img class="refl" src="assets/obalka.webp" width="512" height="800" loading="lazy" alt="" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="offer-sea">
+    <canvas aria-hidden="true"></canvas>
+    <div class="offer-sea-cta">{{ctaOfferSea}}<p class="pay">{{payNote}}</p></div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><a class="logo" href="#">Žít po italsku</a><p style="margin-top:8px">Umění zpomalit, cítit a&nbsp;opravdu žít.</p></div>
+    <nav aria-label="Patička"><button type="button" data-legal="terms">Obchodní podmínky</button><button type="button" data-legal="privacy">Ochrana osobních údajů</button>{{contactLink}}<span>© {{year}} Linda Valešová</span></nav>
+  </div>
+  {{sellerLine}}
+</footer>
+
+<div class="toc-panel" id="toc" hidden>
+  <div class="toc-sheet" role="dialog" aria-modal="true" aria-labelledby="toc-h">
+    <button class="toc-close" type="button" aria-label="Zavřít obsah">×</button>
+    <h3 id="toc-h">Obsah</h3>
+    <ol><li class="x"><i></i><span>Úvod</span></li><li><i>i.</i><span>Itálie není země. Je to tempo.</span></li><li><i>ii.</i><span>Ráno, které určuje den</span></li><li><i>iii.</i><span>Jídlo jako rituál, ne jako povinnost</span></li><li><i>iv.</i><span>Styl jako energie</span></li><li><i>v.</i><span>Komunikace, která nikam nespěchá</span></li><li><i>vi.</i><span>Práce bez permanentního napětí</span></li><li><i>vii.</i><span>Volný čas bez pocitu viny</span></li><li><i>viii.</i><span>Il dolce far niente</span></li><li><i>ix.</i><span>Italská dlouhověkost: co za ní skutečně je</span></li><li><i>x.</i><span>Nedokonalost, která nechá člověka dýchat</span></li><li><i>xi.</i><span>Radost jako způsob života</span></li><li><i>xii.</i><span>Italové a&nbsp;rodina</span></li><li><i>xiii.</i><span>Jak Itálie změnila moje vztahy</span></li><li><i>xiv.</i><span>Samota, která není prázdná</span></li><li><i>xv.</i><span>Kde je domov, když se člověk změní</span></li><li><i>xvi.</i><span>Jak si vytvořit vlastní italský svět odkudkoli</span></li><li class="x"><i></i><span>Závěr: Nečekejte na život</span></li><li class="x"><i></i><span>30 malých rozhodnutí pro pomalejší život</span></li></ol>
+    <p class="toc-foot">Brožovaná · 160 stran</p>
+  </div>
+</div>
+
+<div class="toc-panel" id="legal" hidden>
+  <div class="toc-sheet" role="dialog" aria-modal="true" aria-labelledby="legal-h">
+    <button class="toc-close" type="button" aria-label="Zavřít dokument">×</button>
+    <h3 id="legal-h">Právní dokument</h3>
+    <div id="legal-body"></div>
+  </div>
+</div>
+
+<div class="dock" aria-label="Rychlý nákup">
+  <img src="assets/obalka.webp" width="512" height="800" alt="">
+  <div><b>{{price}}</b><small>Žít po italsku · kniha</small></div>
+  {{ctaDock}}
+</div>
+</body>
+</html>

@@ -30,7 +30,7 @@ Zdroj: `Linda info o knize.pdf`, vložený návrh přední obálky na straně 2.
 
 Pro text a tlačítka jsou použity tmavší doplňující odstíny `#253E3B` a `#205C58`, pro vedlejší text `#596660`. Pestrá ilustrace dostává na webu prostor proti klidnému krémovému pozadí. Knižní mockup je vytvořen CSS, takže lze vyměnit obálku bez úpravy obrázku.
 
-Lora je elegantní čitelný serif pro knižní charakter a jemné kurzivní titulky. DM Sans poskytuje klidný čitelný protipól v odstavcích a ovládání. Oba pocházejí z Google Fonts, mají českou diakritiku a jsou hostované lokálně (Fontsource Variable 5.3.0, licence OFL v assets/fonts). Neposílají požadavky na Google. Web zachovává původní typografii uvnitř dodaného návrhu obálky; nový tiskový návrh obálky není součástí webu.
+Cormorant Garamond je klasická knižní antikva pro nadpisy a citát; Commissioner je klidné bezpatkové písmo pro text a ovládání. Oba fonty mají českou diakritiku, licenci OFL (assets/fonts) a jsou hostované lokálně, takže web neposílá požadavky na Google. Vizuální směr „Dolce vita“: zlatá hodinka nad mořem, broskvové nebe, slunce a tyrkysová hladina; kniha stojí na horizontu v úvodu i v závěrečné nákupní scéně.
 
 Doprovodné ilustrace byly vytaženy z rukopisu a převedeny do WebP. Nebyla dodána autentická fotografie autorky; místo pro ni je viditelně označené. Ilustrace ženy nepředstírá její portrét. Před veřejným nasazením potvrďte oprávnění k obrázkům i finální podobu obálky.
 

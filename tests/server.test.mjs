@@ -55,7 +55,7 @@ test('pokladna: cena ze serveru, ne z prohlížeče; faktura podle nastavení', 
 });
 
 test('pokladna bez spuštěného prodeje odmítne požadavek bez volání Stripe', async () => {
-  const response = await handleCheckout(new Request('https://k.example/api/checkout', { method: 'POST', body: JSON.stringify({ quantity: 1, point: { id: '79' } }) }), {}, () => assert.fail('Stripe se nemá volat'));
+  const response = await handleCheckout(new Request('https://k.example/api/checkout', { method: 'POST', body: JSON.stringify({ quantity: 1, point: { id: '79' } }) }), {}, () => assert.fail('Stripe se nemá volat'), { ...config, product: { ...config.product, availability: 'pripravujeme' } });
   assert.equal(response.status, 400);
 });
 

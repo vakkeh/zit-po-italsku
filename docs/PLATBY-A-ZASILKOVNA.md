@@ -21,6 +21,10 @@ Výchozí je `INVOICE_PROVIDER=stripe`: Stripe po zaplacení pošle zákazníkov
 - Ve Stripe vyplňte Settings → Business → Public details (název, adresa, e-mail podpory). Dále Settings → Customer emails → zapnout e-maily o úspěšných platbách: bez toho Stripe fakturu neodešle. V nastavení faktur zvolte předponu číselné řady.
 - **Ověřte zkušební platbou**, že faktura obsahuje vše, co klientka pro svůj daňový režim potřebuje (číslo dokladu, datum, prodávající a IČO, kupující, položky, částka, poznámka o DPH). Jazyk PDF faktury ve Stripe jsme neověřili.
 
+### Napojení jiné fakturační služby (např. iDoklad)
+
+Fakturace je samostatný krok po zaplacení v `server/orders.mjs` (funkce `fulfillSession`), volba podle `INVOICE_PROVIDER`. Vzorem je `server/fakturoid.mjs`: vytvoří fakturu, označí ji jako uhrazenou a odešle zákazníkovi; výsledek (číslo faktury nebo chybu) uloží do metadat platby ve Stripe, takže se opakovaný webhook nezdvojí. Pro iDoklad stačí přidat `server/idoklad.mjs` se stejnými kroky, novou hodnotu `INVOICE_PROVIDER=idoklad` a přístupové údaje do proměnných prostředí na Netlify (ne do `config.mjs`). Při `idoklad` nastavte, aby Stripe sám fakturu nevystavoval (stejně jako u Fakturoidu).
+
 Alternativa: `INVOICE_PROVIDER=fakturoid`. Faktura vznikne ve **Fakturoidu klientky**, označí se jako uhrazená a odešle se česky zákaznici. Vyplatí se, pokud klientka Fakturoid už používá pro účetnictví. Potřebuje tarif s API a bankovní účet nastavený ve Fakturoidu. `INVOICE_PROVIDER=none` faktury nevystavuje.
 
 ## Co je potřeba založit
@@ -34,7 +38,7 @@ Alternativa: `INVOICE_PROVIDER=fakturoid`. Faktura vznikne ve **Fakturoidu klien
 
 ## Nastavení krok za krokem
 
-1. **`config.mjs`**: `product.price`, `product.availability: 'skladem'`, `product.checkoutMode: 'stripe'`, `shipping.price` (cena dopravy v Kč), `shipping.packetaWidgetKey` (API klíč Zásilkovny), `shipping.weightKg` (hmotnost zabalené knihy), údaje `seller`. Pokladna se na webu ukáže, až jsou vyplněné cena, doprava a klíč widgetu.
+1. **`config.mjs`**: `product.price`, `product.availability: 'skladem'`, `shipping.price` (cena dopravy v Kč), `shipping.packetaWidgetKey` (API klíč Zásilkovny), `shipping.weightKg` (hmotnost zabalené knihy), údaje `seller`. Pokladna (objednávkový formulář v nákupní sekci) se na webu ukáže, až jsou vyplněné cena, doprava a klíč widgetu. Do té doby tlačítka ukazují „Brzy v prodeji“.
 2. **Netlify**: připojte repozitář (nastavení je v `netlify.toml`). V Site configuration → Environment variables nastavte:
 
    | Proměnná | Hodnota |
@@ -54,7 +58,7 @@ Alternativa: `INVOICE_PROVIDER=fakturoid`. Faktura vznikne ve **Fakturoidu klien
 
 ## Před spuštěním prodeje
 
-- Obchodní podmínky, reklamační řád a zásady ochrany osobních údajů musí odpovídat tomuto provozu: Stripe, Zásilkovna, Netlify, případně Fakturoid jako příjemci údajů. Pracovní kostry jsou v `build.mjs` → `legal`. Text tlačítka „Objednat a zaplatit“ a souhlas s podmínkami nechte ověřit spolu s podmínkami.
+- Obchodní podmínky, reklamační řád a zásady ochrany osobních údajů musí odpovídat tomuto provozu: Stripe, Zásilkovna, Netlify, případně fakturační služba (Fakturoid, iDoklad) jako příjemci údajů. Pracovní kostry jsou v `build.mjs` → `legal`. Text tlačítka „Objednat a zaplatit“ a souhlas s podmínkami nechte ověřit spolu s podmínkami.
 - Kód nic neukládá mimo Stripe, Zásilkovnu a Fakturoid. Vlastní databáze objednávek není: přehled objednávek je ve Stripe, zásilek v Zásilkovně.
 - Sklad se nehlídá automaticky. Při vyprodání přepněte `product.availability` na `vyprodano` a znovu nasaďte.
 - Widget Zásilkovny se načítá až po kliknutí na „Vybrat výdejní místo“ (třetí strana, viz zásady ochrany osobních údajů).
