@@ -9,7 +9,7 @@ export default {
   // (NE API heslo). price = cena dopravy v Kč, null = pokladna vypnutá. weightKg = hmotnost jednoho balení knihy.
   shipping: { packetaWidgetKey: '', price: null, weightKg: 0.4, maxQuantity: 5 },
   // TODO: ověřit přímé vložení do košíku pro konkrétní Shoptet. Není použita domnělá syntaxe.
-  siteUrl: 'https://janvales74-coder.github.io/zit-po-italsku-web', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
+  siteUrl: 'https://objevitalii.cz', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
   projectUrl: '', contactEmail: '', instagramUrl: '', facebookUrl: '',
   seller: { name: '', ico: '', address: '', invoiceNote: '' }, // invoiceNote např. 'Neplátce DPH.' – patička faktur ze Stripe.
   newsletter: { endpoint: '', emailField: 'email', consentField: 'consent', hiddenFields: {}, fallbackEmail: '', privacyReady: false },
