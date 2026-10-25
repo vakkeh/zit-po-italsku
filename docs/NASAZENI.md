@@ -4,13 +4,17 @@ Nejdříve projděte seznam k doplnění v PROPOJENI-A-PRAVO.md, nastavte `siteU
 
 ## Netlify
 
-Připojte tento GitHub repozitář. Build command: `npm run build`. Publish directory: `dist`. Node.js: 22 nebo 24. Nejsou potřeba proměnné ani tajné klíče. Po prvním nasazení přidejte vlastní doménu v nastavení domén webu, nastavte DNS podle konkrétních pokynů Netlify a ověřte vydání TLS certifikátu.
+Doporučený hosting, protože jen ten v tomto projektu spouští serverové funkce pokladny (`netlify/functions`, nastavení v `netlify.toml`). Připojte tento GitHub repozitář; build command, výstup `dist` i Node.js 22 se načtou z `netlify.toml`. Tajné klíče pro Stripe a Zásilkovnu nastavte v Environment variables podle [PLATBY-A-ZASILKOVNA.md](PLATBY-A-ZASILKOVNA.md). Po prvním nasazení přidejte vlastní doménu v nastavení domén webu, nastavte DNS podle konkrétních pokynů Netlify a ověřte vydání TLS certifikátu.
 
-## Cloudflare Pages
+## Cloudflare Pages, klasický hosting, GitHub Pages
+
+Tyto varianty publikují jen statický web: pokladna Stripe + Zásilkovna na nich **nefunguje** (chybí `/api/checkout` a `/api/stripe-webhook`). Použijte je jen pro náhled nebo s režimem Shoptet.
+
+### Cloudflare Pages
 
 Připojte repozitář, framework preset `None`, build command `npm run build`, výstup `dist`. Použijte Node.js 22+. V Custom domains přidejte hlavní doménu a postupujte podle zobrazených DNS záznamů. Nepoužívejte univerzální A záznam z návodu jiného projektu.
 
-## Klasický hosting
+### Klasický hosting
 
 Lokálně spusťte `npm run build`, potom nahrajte **obsah** `dist/` do veřejného webového adresáře. Server musí vracet správné typy pro `.webp`, `.woff2`, `.json`, `.svg`. Zapněte HTTPS a kompresi Brotli/gzip. Nastavte cache statických assetů; protože názvy nejsou hashované, nepoužívejte dlouhou immutable cache bez změny názvů. HTML a `legal.json` ponechte s krátkou cache / revalidací.
 

@@ -1,5 +1,7 @@
 # Shoptet a příprava prodeje
 
+> Výchozí režim je nyní vlastní pokladna Stripe + Zásilkovna: viz [PLATBY-A-ZASILKOVNA.md](PLATBY-A-ZASILKOVNA.md). Části o Shoptetu níže platí jen při `checkoutMode: 'product'` nebo `'cart'`. Seznam k doplnění a právní kostry platí v obou režimech.
+
 ## Co doplnit před zveřejněním prodeje
 
 - [ ] Finální produktovou URL v Shoptetu (`SHOPTET_PRODUCT_URL`).

@@ -164,6 +164,30 @@ Při nákupu přes internet máte jako spotřebitel zpravidla právo odstoupit o
 
 Objednávka i bezpečná platba probíhají v e-shopu Shoptet.
 
+Počet kusů
+
+Doprava Zásilkovnou na výdejní místo nebo do Z-BOXu
+
+Výdejní místo zatím není vybrané.
+
+Vybrat výdejní místo
+
+Změnit výdejní místo
+
+Celkem k úhradě
+
+Souhlasím s obchodními podmínkami a beru na vědomí informace o zpracování osobních údajů.
+
+Objednat a zaplatit
+
+Pro objednávku je potřeba mít v prohlížeči zapnutý JavaScript.
+
+Platba kartou na zabezpečené platební stránce Stripe. Údaje o kartě k nám vůbec nedorazí.
+
+Knihu posíláme Zásilkovnou po celé ČR. Kód zásilky a informace o doručení vám pošle Zásilkovna e-mailem.
+
+Zabezpečená platba přes Stripe.
+
 ## 7. Ohlasy
 
 OHLASY ČTENÁŘŮ
@@ -208,7 +232,7 @@ Právní dokumenty jsou zatím pracovní šablony. Před zahájením prodeje bud
 
 Děkujeme. Vaše italská chvíle je o stránku blíž.
 
-Potvrzení objednávky a informace k platbě najdete v e-mailu z našeho e-shopu. Než kniha dorazí, zkuste si dát jednu kávu bez telefonu. Jen tak, pro sebe.
+Potvrzení platby najdete v e-mailu. Jakmile knihu odešleme, Zásilkovna vám pošle kód zásilky a dá vědět, kdy si ji můžete vyzvednout. Než kniha dorazí, zkuste si dát jednu kávu bez telefonu. Jen tak, pro sebe.
 
 ## Opakované prvky
 
