@@ -1,21 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, cpSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, cpSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import config from '../config.mjs';
 
 // Sestaví web v dočasné složce s upravenou konfigurací a vrátí vygenerované soubory.
-function build(change) {
+function build(change, env = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'zit-build-'));
   try {
-    for (const f of ['build.mjs', 'commerce.mjs', 'styles.css', 'app.js']) cpSync(new URL('../' + f, import.meta.url), join(dir, f));
+    for (const f of ['build.mjs', 'commerce.mjs', 'styles.css', 'app.js', 'gate.js']) cpSync(new URL('../' + f, import.meta.url), join(dir, f));
     for (const d of ['src', 'assets']) cpSync(new URL('../' + d, import.meta.url), join(dir, d), { recursive: true });
     const c = structuredClone(config); change?.(c);
     writeFileSync(join(dir, 'config.mjs'), `export default ${JSON.stringify(c)}`);
-    execFileSync(process.execPath, ['build.mjs'], { cwd: dir });
-    return { html: readFileSync(join(dir, 'dist/index.html'), 'utf8'), thanks: readFileSync(join(dir, 'dist/dekujeme.html'), 'utf8'), legal: JSON.parse(readFileSync(join(dir, 'dist/legal.json'), 'utf8')) };
+    execFileSync(process.execPath, ['build.mjs'], { cwd: dir, env: { ...process.env, SITE_PASSWORD: '', ...env } });
+    return { html: readFileSync(join(dir, 'dist/index.html'), 'utf8'), thanks: readFileSync(join(dir, 'dist/dekujeme.html'), 'utf8'), legal: JSON.parse(readFileSync(join(dir, 'dist/legal.json'), 'utf8')), gate: existsSync(join(dir, 'dist/gate.js')) ? readFileSync(join(dir, 'dist/gate.js'), 'utf8') : null };
   } finally { rmSync(dir, { recursive: true, force: true }); }
 }
 const ready = c => { c.product.availability = 'skladem'; c.product.price = 449; c.shipping = { ...c.shipping, price: 89, packetaWidgetKey: 'abcdef0123456789' }; c.siteUrl = 'https://kniha.example'; };
@@ -57,4 +57,18 @@ test('šablona je celá vyplněná, fonty jsou z vlastního webu, děkovací str
 });
 test('HTTP odkazy sestavení odmítne', () => {
   assert.throws(() => build(c => { c.projectUrl = 'http://objev.example'; }));
+});
+
+test('heslová brána: bez SITE_PASSWORD žádná, s ním jen otisk hesla', async () => {
+  const open = build();
+  assert.ok(open.gate === null && !open.html.includes('gate.js') && !open.thanks.includes('gate.js'));
+  const password = 'Italské léto 2026!';
+  const locked = build(undefined, { SITE_PASSWORD: password });
+  assert.ok(locked.html.includes('<script src="gate.js"></script>') && locked.thanks.includes('<script src="gate.js"></script>'));
+  assert.ok(locked.html.includes('name="robots" content="noindex"'));
+  assert.ok(!locked.gate.includes(password) && !locked.html.includes(password) && !/__(SALT|HASH)__/.test(locked.gate));
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: new TextEncoder().encode('zit-po-italsku'), iterations: 100000 }, base, 256);
+  const hex = [...new Uint8Array(bits)].map(b => b.toString(16).padStart(2, '0')).join('');
+  assert.ok(locked.gate.includes(`hash = '${hex}'`), 'otisk z buildu odpovídá výpočtu v prohlížeči');
 });
