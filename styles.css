@@ -361,8 +361,8 @@ footer nav button:hover{color:var(--cream)}
 .thanks-copy .btn{margin-top:6px;animation:letterUp 1s .6s both}
 .thanks-book{flex:1;display:flex;align-items:flex-end;justify-content:center;position:relative;z-index:3;padding-top:26px}
 .thanks-book .book{width:var(--bw);margin-bottom:-44px}
-/* Slunce má střed v polovině výšky knihy (kniha má poměr 1 : 1,5625), i na telefonu, kde úvodní stránka slunce kreslí jinak. */
-.thanks-hero .sun{display:block;bottom:calc(var(--sea-h) - 44px + var(--bw) * .78 - var(--sun) / 2)}
+/* Slunce je z poloviny potopené v moři (střed na hladině), kniha stojí před ním. Na telefonu úvodní stránka slunce kreslí jinak, proto display:block. */
+.thanks-hero .sun{display:block;bottom:calc(var(--sea-h) - var(--sun) / 2)}
 .thanks-hero .sea{margin-top:0;flex:none}
 /* Objednávkový formulář (Stripe + Zásilkovna) v nákupní sekci */
 .order-form{display:grid;gap:16px;max-width:460px;margin-top:4px}
