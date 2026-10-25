@@ -130,3 +130,45 @@ document.querySelectorAll('[data-legal]').forEach(b => b.addEventListener('click
     for (const t of paragraphs) { const p = document.createElement('p'); p.textContent = t; legalBody.append(p); }
   } catch { legalDocs = null; legalBody.textContent = 'Dokument se nepodařilo načíst.'; }
 }));
+
+/* Pokladna: výběr výdejního místa ve widgetu Zásilkovny, cenu ověřuje a účtuje server (api/checkout). */
+const order = document.getElementById('order-form');
+if (order) {
+  const quantity = order.querySelector('#order-quantity'), total = order.querySelector('#order-total'), selected = order.querySelector('#pickup-selected'),
+    pick = order.querySelector('#pickup-button'), status = order.querySelector('[role="status"]'), submit = order.querySelector('[type="submit"]');
+  const czk = n => new Intl.NumberFormat('cs-CZ').format(n) + ' Kč';
+  const update = () => { total.textContent = czk(Number(order.dataset.price) * Number(quantity.value) + Number(order.dataset.shipping)); };
+  quantity.addEventListener('change', update); update();
+  let point = null, widget;
+  // Knihovna Zásilkovny se načítá až po kliknutí, ne při otevření stránky.
+  const loadWidget = () => widget ||= new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://widget.packeta.com/v6/www/js/library.js';
+    script.onload = () => window.Packeta ? resolve(window.Packeta) : reject();
+    script.onerror = () => { widget = null; reject(); };
+    document.head.append(script);
+  });
+  pick.addEventListener('click', async () => {
+    try {
+      const Packeta = await loadWidget();
+      Packeta.Widget.pick(order.dataset.packetaKey, result => {
+        if (!result) return;
+        const label = [result.place, result.name].filter(Boolean).join(', ');
+        point = { id: String(result.id), carrierId: result.carrierId ? String(result.carrierId) : '', carrierPickupPointId: result.carrierPickupPointId ? String(result.carrierPickupPointId) : '', label };
+        selected.textContent = label; order.classList.add('has-point'); pick.textContent = pick.dataset.change; status.textContent = '';
+      }, { country: 'cz', language: 'cs' });
+    } catch { status.textContent = 'Mapu výdejních míst se nepodařilo načíst. Zkuste to prosím znovu.'; }
+  });
+  order.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!point) { status.textContent = 'Nejprve prosím vyberte výdejní místo Zásilkovny.'; pick.focus(); return; }
+    submit.disabled = true; status.textContent = 'Přesměrováváme vás na zabezpečenou platbu…';
+    try {
+      const response = await fetch('api/checkout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ quantity: Number(quantity.value), point }) });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.url) throw new Error(data.error);
+      location.href = data.url;
+    } catch (error) { status.textContent = error.message || 'Platbu se teď nepodařilo zahájit. Zkuste to prosím za chvíli znovu.'; submit.disabled = false; }
+  });
+  addEventListener('pageshow', () => { submit.disabled = false; });
+}

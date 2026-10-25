@@ -1,29 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buyLink, saleState, czPrice } from '../commerce.mjs';
-const LINK = 'https://buy.stripe.com/test_abc123';
+import { saleOpen, stripeCheckoutReady, saleState, czPrice } from '../commerce.mjs';
 const product = { price: 399, availability: 'skladem', dispatchDays: 2, dispatchDate: '' };
+const shipping = { packetaWidgetKey: 'abcdef0123456789', price: 89, weightKg: 0.4, maxQuantity: 5 };
 
-test('skladem s cenou a odkazem nabízí nákup přes Stripe', () => {
-  assert.equal(buyLink(LINK, product), LINK);
-  assert.equal(saleState(product, LINK).label, 'Objednat knihu');
+test('pokladna je aktivní jen s cenou, dopravou a klíčem widgetu', () => {
+  assert.ok(stripeCheckoutReady({ product, shipping }));
+  assert.ok(!stripeCheckoutReady({ product, shipping: { ...shipping, price: null } }));
+  assert.ok(!stripeCheckoutReady({ product, shipping: { ...shipping, packetaWidgetKey: '' } }));
+  assert.ok(!stripeCheckoutReady({ product: { ...product, price: null }, shipping }));
 });
-test('bez odkazu, bez ceny, při přípravě a vyprodání se nákup nenabízí', () => {
-  assert.equal(buyLink('', product), '');
-  assert.equal(buyLink(LINK, { ...product, price: null }), '');
-  for (const availability of ['pripravujeme', 'vyprodano']) assert.equal(buyLink(LINK, { ...product, availability }), '');
-  assert.equal(saleState({ ...product, availability: 'vyprodano' }, '').label, 'Momentálně vyprodáno');
-  assert.equal(saleState(product, '').label, 'Brzy v prodeji');
+test('při přípravě a vyprodání se neprodává, předprodej potřebuje datum', () => {
+  for (const availability of ['pripravujeme', 'vyprodano']) assert.ok(!saleOpen({ ...product, availability }));
+  assert.ok(!saleOpen({ ...product, availability: 'predprodej' }));
+  assert.ok(saleOpen({ ...product, availability: 'predprodej', dispatchDate: '2026-12-01' }));
+  assert.throws(() => saleOpen({ ...product, availability: 'neco' }), /dostupnost/);
 });
-test('předprodej potřebuje datum expedice', () => {
-  const pre = { ...product, availability: 'predprodej' };
-  assert.equal(buyLink(LINK, pre), '');
-  assert.equal(buyLink(LINK, { ...pre, dispatchDate: '2026-12-01' }), LINK);
-  assert.match(saleState({ ...pre, dispatchDate: '2026-12-01' }, LINK).short, /1\. 12\. 2026/);
-});
-test('platební odkaz musí být HTTPS a dostupnost platná', () => {
-  assert.throws(() => buyLink('http://buy.stripe.com/x', product), /HTTPS/);
-  assert.throws(() => buyLink(LINK, { ...product, availability: 'neco' }), /dostupnost/);
+test('stav prodeje pro tlačítka', () => {
+  assert.equal(saleState(product, true).label, 'Objednat knihu');
+  assert.match(saleState({ ...product, availability: 'predprodej', dispatchDate: '2026-12-01' }, true).short, /1\. 12\. 2026/);
+  assert.equal(saleState({ ...product, availability: 'vyprodano' }, false).label, 'Momentálně vyprodáno');
+  assert.equal(saleState(product, false).label, 'Brzy v prodeji');
 });
 test('cena v korunách s pevnou mezerou', () => {
   assert.equal(czPrice(399), '399 Kč');

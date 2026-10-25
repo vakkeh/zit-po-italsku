@@ -1,16 +1,20 @@
 # Nasazení
 
-Nejdříve projděte seznam k doplnění v STRIPE-A-PRAVO.md, nastavte `siteUrl` a spusťte `npm run build` a `npm test`. Zdrojové přílohy ani rukopis nevystavujte na hosting. Publikuje se pouze `dist/`.
+Nejdříve projděte nastavení plateb a dopravy v PLATBY-A-ZASILKOVNA.md, nastavte `siteUrl` a spusťte `npm run build` a `npm test`. Zdrojové přílohy ani rukopis nevystavujte na hosting. Publikuje se pouze `dist/`.
 
 ## Netlify
 
-Připojte tento GitHub repozitář. Build command: `npm run build`. Publish directory: `dist`. Node.js: 22 nebo 24. Nejsou potřeba proměnné ani tajné klíče. Po prvním nasazení přidejte vlastní doménu v nastavení domén webu, nastavte DNS podle konkrétních pokynů Netlify a ověřte vydání TLS certifikátu.
+Doporučený hosting, protože jen ten v tomto projektu spouští serverové funkce pokladny (`netlify/functions`, nastavení v `netlify.toml`). Připojte tento GitHub repozitář; build command, výstup `dist` i Node.js 22 se načtou z `netlify.toml`. Tajné klíče pro Stripe a Zásilkovnu nastavte v Environment variables podle [PLATBY-A-ZASILKOVNA.md](PLATBY-A-ZASILKOVNA.md). Po prvním nasazení přidejte vlastní doménu v nastavení domén webu, nastavte DNS podle konkrétních pokynů Netlify a ověřte vydání TLS certifikátu.
 
-## Cloudflare Pages
+## Cloudflare Pages, klasický hosting, GitHub Pages
+
+Tyto varianty publikují jen statický web: pokladna Stripe + Zásilkovna na nich **nefunguje** (chybí `/api/checkout` a `/api/stripe-webhook`). Použijte je jen pro náhled nebo s režimem Shoptet.
+
+### Cloudflare Pages
 
 Připojte repozitář, framework preset `None`, build command `npm run build`, výstup `dist`. Použijte Node.js 22+. V Custom domains přidejte hlavní doménu a postupujte podle zobrazených DNS záznamů. Nepoužívejte univerzální A záznam z návodu jiného projektu.
 
-## Klasický hosting
+### Klasický hosting
 
 Lokálně spusťte `npm run build`, potom nahrajte **obsah** `dist/` do veřejného webového adresáře. Server musí vracet správné typy pro `.webp`, `.woff2`, `.json`, `.svg`. Zapněte HTTPS a kompresi Brotli/gzip. Nastavte cache statických assetů; protože názvy nejsou hashované, nepoužívejte dlouhou immutable cache bez změny názvů. HTML a `legal.json` ponechte s krátkou cache / revalidací.
 
@@ -18,9 +22,9 @@ Doporučené hlavičky: `X-Content-Type-Options: nosniff`, `Referrer-Policy: str
 
 ## Domény a návaznost
 
-Doporučená struktura: web na vlastní doméně, např. `zitpoitalsku.cz` (příklad, vlastnictví ani dostupnost nejsou ověřené). Platba běží na stránce Stripe, vlastní e-shop ani subdoména nejsou potřeba. Nezapisujte cizí IP odhadem. Oba weby musí mít platné HTTPS. Vyberte kanonickou www/ne-www variantu a druhou přesměrujte.
+Doporučená struktura: web na vlastní doméně, např. `zitpoitalsku.cz` (příklad, vlastnictví ani dostupnost nejsou ověřené). Platba běží na stránce Stripe a pokladnu obsluhují serverové funkce na stejné doméně (Netlify), subdoména pro e-shop není potřeba. Nezapisujte cizí IP odhadem. Web musí mít platné HTTPS. Vyberte kanonickou www/ne-www variantu a druhou přesměrujte.
 
-Po připojení domény nastavte `siteUrl` (a ve Stripe přesměrování po platbě na `siteUrl/dekujeme.html`), znovu sestavte. Ověřte metadata sociálních sítí (absolutní URL obálky), zkušební platbu přes Stripe a návrat na děkovací stránku. Nové veřejné nasazení a nákup nebyly v cloudové přípravě provedeny.
+Po připojení domény nastavte `siteUrl`, ve Stripe webhook na `https://<doména>/api/stripe-webhook` a znovu nasaďte. Návrat po platbě na `dekujeme.html` nastavuje server sám. Ověřte metadata sociálních sítí (absolutní URL obálky), zkušební platbu přes Stripe a návrat na děkovací stránku. Nové veřejné nasazení a nákup nebyly v cloudové přípravě provedeny.
 
 ## Živá prohlídka přes GitHub Pages
 

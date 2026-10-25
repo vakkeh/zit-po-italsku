@@ -1,0 +1,12 @@
+# Statický web z dist/ + serverové funkce pro platby (netlify/functions).
+# Tajné klíče patří do Netlify → Site configuration → Environment variables, nikdy do repozitáře.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

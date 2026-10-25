@@ -358,3 +358,30 @@ footer nav button:hover{color:var(--cream)}
 .thanks p{max-width:520px;color:var(--soft)}
 .thanks .scene{margin-top:20px}
 .thanks .book{width:150px}
+/* Objednávkový formulář (Stripe + Zásilkovna) v nákupní sekci */
+.order-form{display:grid;gap:16px;max-width:460px;margin-top:4px}
+.of-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.of-row label{font-size:16px}
+.order-form select{min-width:88px;padding:10px 14px;border:1px solid var(--line);border-radius:4px;background:#FFFCF4;color:var(--ink);font:inherit;font-size:16px}
+.pickup{padding:16px 18px;border-radius:8px;background:rgba(255,252,244,.72);border:1px solid var(--line)}
+.pickup-title{font-size:14px;color:var(--soft)}
+.pickup-selected{margin-top:4px;font-family:var(--display);font-size:20px;font-weight:600;line-height:1.25;color:var(--ink)}
+.order-form:not(.has-point) .pickup-selected{font-family:var(--body);font-size:15px;font-weight:330;color:var(--soft)}
+.pickup-button{margin-top:10px;background:none;border:0;padding:2px 0;font:inherit;font-size:15px;color:var(--sea);border-bottom:1px solid var(--coral);cursor:pointer}
+.pickup-button:hover{color:var(--coral)}
+.order-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:16px}
+.order-total strong{font-family:var(--display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--soft)}
+.consent input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:var(--sea)}
+.inline-link{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;text-decoration-color:var(--coral);text-underline-offset:3px;cursor:pointer}
+.order-form .btn{justify-self:start}
+.order-form .btn:disabled{opacity:.6;cursor:wait;transform:none}
+.form-status{font-size:14px;color:var(--sea)}
+.form-status:empty{display:none}
+@media (max-width:960px){
+  .order-form{margin-inline:auto;text-align:left}
+}
+@media (max-width:699px){
+  .offer-copy .order-form .btn{display:inline-flex;width:100%;justify-self:stretch}
+  .order-form{max-width:none}
+}

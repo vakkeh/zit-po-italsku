@@ -1,31 +1,33 @@
 # Žít po italsku
 
-Prodejní web ke knize Lindy Valešové. Statická stránka (HTML, CSS, malý JavaScript) bez runtime závislostí; sestavení používá jen standardní knihovnu Node.js 22+. Fonty a obrázky jsou lokální, web nevolá žádné cizí služby. Nákup probíhá přes Stripe Payment Link.
+Prodejní web ke knize Lindy Valešové ve vizuálním stylu „Dolce vita“. Statická stránka (HTML, CSS, malý JavaScript) a dvě serverové funkce na Netlify pro vlastní pokladnu: platba přes **Stripe**, doprava **Zásilkovnou** na výdejní místo, faktura ze Stripe (nebo z napojené fakturační služby). Bez npm balíčků; sestavení i funkce používají jen standardní knihovnu Node.js 22+. Fonty a obrázky jsou lokální.
 
 ```sh
 npm run build   # sestaví dist/
-npm test        # ověří sestavení ve všech stavech prodeje
-npm start       # náhled na http://localhost:4173
+npm test        # sestavení ve všech stavech prodeje + serverové funkce se simulovanými službami
+npm start       # náhled statické stránky na http://localhost:4173 (bez pokladny)
 ```
 
-Na hosting patří jen obsah `dist/`.
+Nasazuje se na Netlify (`netlify.toml`): statický web z `dist/` a funkce z `netlify/functions/`.
 
 ## Kde co upravit
 
 | Co | Kde |
 |---|---|
-| Cena, dostupnost, Stripe odkaz, kontakty, prodávající | `config.mjs` |
+| Cena, dostupnost, doprava, kontakty, prodávající | `config.mjs` |
 | Texty stránky | `src/index.html` |
 | Vzhled | `styles.css` |
-| Animace (Italský den, moře, panely) | `app.js` |
+| Animace, panely, objednávkový formulář | `app.js` |
 | Právní šablony, děkovací stránka | `build.mjs` |
+| Platba, zásilka, faktura po zaplacení | `server/` |
 
-Po každé změně spusťte `npm run build`. Do konfigurace nikdy nevkládejte API klíče ani jiné tajné údaje.
+Po každé změně spusťte `npm run build`. Tajné klíče (Stripe, API heslo Zásilkovny, fakturační služba) patří do proměnných prostředí na Netlify, nikdy do repozitáře.
 
-Dokud `config.mjs` neobsahuje Stripe odkaz a `availability: 'skladem'`, tlačítka ukazují „Brzy v prodeji“ a nic se neprodává.
+Dokud v `config.mjs` nejsou cena, `availability: 'skladem'`, cena dopravy a klíč widgetu Zásilkovny, tlačítka ukazují „Brzy v prodeji“ a pokladna se nezobrazí.
 
 ## Dokumentace
 
-- [Prodej přes Stripe, právní texty a seznam k doplnění](docs/STRIPE-A-PRAVO.md)
-- [Obsah, vizuální návrh a podklady](docs/NAVRH.md)
+- [Platby Stripe, Zásilkovna a faktury (i napojení iDokladu)](docs/PLATBY-A-ZASILKOVNA.md)
 - [Nasazení a domény](docs/NASAZENI.md)
+- [Obsah, vizuální návrh a podklady](docs/NAVRH.md)
+- [Ověření](docs/OVERENI.md)
