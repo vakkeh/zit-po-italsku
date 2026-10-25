@@ -34,6 +34,6 @@ Připravený soubor `.github/workflows/pages.yml` sestaví a otestuje web a publ
 
 Statický výstup byl nahrán také do větve `gh-pages`. V Settings → Pages nastavte Source: Deploy from a branch, Branch: gh-pages a Folder: / (root), poté Save. Tato cesta nevyžaduje ruční spouštění workflow. Obsahuje jen veřejný výstup dist, žádný rukopis ani zdrojové přílohy. Stav publikace je nutné ověřit v GitHubu; přístup k API a github.io byl z cloudového prostředí blokován síťovou politikou. Workflow v repozitáři je ponechán jako volitelná ručně spouštěná alternativa pro režim GitHub Actions.
 
-## Heslo na celý web (dočasně)
+## Heslo na stránku (dočasně)
 
-`netlify/edge-functions/password.mjs` zamyká celý web heslem (HTTP Basic; uživatelské jméno je libovolné). Heslo se nastaví v Netlify → Environment variables → `SITE_PASSWORD`. Bez této proměnné zůstane web zamčený (503). Webhook Stripe (`/api/stripe-webhook`) je z ochrany vyloučený, jinak by Stripe nedoručil události o platbách. Při spuštění prodeje soubor `netlify/edge-functions/password.mjs` smažte a znovu nasaďte.
+Pokud je při sestavení nastavená proměnná prostředí `SITE_PASSWORD` (Netlify → Environment variables), stránka se zobrazí až po zadání hesla (`gate.js`, přidá se do `dist/` jen s heslem). Heslo se do webu nikdy nedostane v čitelné podobě, jen jeho otisk. Je to pouze zámek vzhledu: obsah stránky zůstává v HTML, takže nejde o skutečnou ochranu proti někomu, kdo si zobrazí zdrojový kód. Webhook Stripe heslem není dotčený. Zrušení: smažte proměnnou `SITE_PASSWORD` a znovu nasaďte. Změna hesla vyžaduje nový deploy a všem se zobrazí brána znovu. Kratší běžné slovo v hesle může spustit kontrolu tajných hodnot v Netlify (jeho text se najde jinde ve výstupu); použijte delší heslo.

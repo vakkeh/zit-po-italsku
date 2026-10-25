@@ -2,6 +2,7 @@
 import config from './config.mjs';
 import { stripeCheckoutReady, saleState, czDate, czPrice } from './commerce.mjs';
 import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync } from 'node:fs';
+import { pbkdf2Sync } from 'node:crypto';
 
 const { product: p, shipping } = config;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -66,6 +67,11 @@ const values = {
   year: String(new Date().getFullYear()),
 };
 
+// Dočasná heslová brána: jen s SITE_PASSWORD. Do stránky jde otisk hesla, nikdy heslo samo.
+const sitePassword = process.env.SITE_PASSWORD || '';
+const gateTag = sitePassword ? '<meta name="robots" content="noindex"><script src="gate.js"></script>' : '';
+values.gate = gateTag;
+
 const fill = template => template.replace(/\{\{(\w+)\}\}/g, (_, key) => {
   if (!(key in values)) throw new Error('Šablona používá neznámou hodnotu {{' + key + '}}');
   return values[key];
@@ -75,10 +81,14 @@ rmSync('dist', { recursive: true, force: true });
 mkdirSync('dist', { recursive: true });
 cpSync('assets', 'dist/assets', { recursive: true });
 for (const file of ['styles.css', 'app.js']) cpSync(file, 'dist/' + file);
+if (sitePassword) {
+  const salt = 'zit-po-italsku', hash = pbkdf2Sync(sitePassword, salt, 100000, 32, 'sha256').toString('hex');
+  writeFileSync('dist/gate.js', readFileSync('gate.js', 'utf8').replace('__SALT__', salt).replace('__HASH__', hash));
+}
 writeFileSync('dist/index.html', fill(readFileSync('src/index.html', 'utf8')));
 
 // Děkovací stránka: sem Stripe vrací zákazníka po zaplacení (success_url v server/orders.mjs).
-writeFileSync('dist/dekujeme.html', `<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Děkujeme · Žít po italsku</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"></head><body>
+writeFileSync('dist/dekujeme.html', `<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">${gateTag}<title>Děkujeme · Žít po italsku</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"></head><body>
 <main class="thanks"><h1>Děkujeme. Vaše italská chvíle je o&nbsp;stránku blíž.</h1><p>Potvrzení platby vám přijde e-mailem. Jakmile knihu odešleme, Zásilkovna vám pošle kód zásilky a dá vědět, kdy si ji můžete vyzvednout. Než kniha dorazí, zkuste si dát jednu kávu bez telefonu. Jen tak, pro sebe.</p><a class="btn" href="./">Zpět ke knize</a><div class="scene"><div class="book"><img src="assets/obalka.webp" width="512" height="800" alt="Obálka knihy Žít po italsku"></div></div></main>
 </body></html>`);
 
