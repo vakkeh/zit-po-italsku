@@ -7,7 +7,7 @@ export default {
   // checkoutMode: stripe = vlastní pokladna (Stripe + Zásilkovna, viz docs/PLATBY-A-ZASILKOVNA.md) | product | cart = odkaz do Shoptetu
   // Doprava pro vlastní pokladnu. packetaWidgetKey je veřejný 16znakový API klíč z klientské sekce Zásilkovny
   // (NE API heslo). price = cena dopravy v Kč, null = pokladna vypnutá. weightKg = hmotnost jednoho balení knihy.
-  shipping: { packetaWidgetKey: '', price: null, weightKg: 0.4, maxQuantity: 5 },
+  shipping: { packetaWidgetKey: 'cb745919d3ac1483', price: null, weightKg: 0.4, maxQuantity: 5 },
   // TODO: ověřit přímé vložení do košíku pro konkrétní Shoptet. Není použita domnělá syntaxe.
   siteUrl: 'https://janvales74-coder.github.io/zit-po-italsku-web', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
   projectUrl: '', contactEmail: '', instagramUrl: '', facebookUrl: '',
