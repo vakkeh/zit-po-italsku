@@ -353,11 +353,16 @@ footer nav button{background:none;border:0;padding:0;font:inherit;color:inherit;
 footer nav button:hover{color:var(--cream)}
 .seller{margin-top:26px;font-size:13px;opacity:.75}
 /* Děkovací stránka po zaplacení */
-.thanks{min-height:100vh;min-height:100svh;display:grid;align-content:center;justify-items:center;text-align:center;gap:22px;padding:60px 20px 0;overflow:hidden;background:linear-gradient(180deg,#FFF3DF 0%,#FCE1BE 45%,var(--peach) 75%)}
-.thanks h1{font-size:clamp(40px,6vw,72px);max-width:14ch}
-.thanks p{max-width:520px;color:var(--soft)}
-.thanks .scene{margin-top:20px}
-.thanks .book{width:150px}
+/* ---------- Děkovací stránka: stejný západ slunce jako úvod ---------- */
+.thanks-hero{--sea-h:170px;--sun:min(430px,84vw);min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding-top:92px}
+.thanks-copy{display:grid;justify-items:center;text-align:center;gap:18px;position:relative;z-index:2}
+.thanks-hero .tag{margin-bottom:0}
+.thanks-hero h1{font-size:clamp(42px,min(7.4vw,10.5vh),96px);line-height:.98;max-width:13em;text-wrap:balance}
+.thanks-lead{max-width:600px;color:var(--soft);animation:letterUp 1s .5s both}
+.thanks-copy .btn{margin-top:6px;animation:letterUp 1s .6s both}
+.thanks-book{flex:1;display:flex;align-items:flex-end;justify-content:center;position:relative;z-index:3;padding-top:26px}
+.thanks-book .book{width:min(210px,50vw,26vh);min-width:132px;margin-bottom:-44px}
+.thanks-hero .sea{margin-top:0;flex:none}
 /* Objednávkový formulář (Stripe + Zásilkovna) v nákupní sekci */
 .order-form{display:grid;gap:16px;max-width:460px;margin-top:4px}
 .of-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
