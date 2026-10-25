@@ -33,3 +33,7 @@ Připravený soubor `.github/workflows/pages.yml` sestaví a otestuje web a publ
 ### Nejjednodušší aktivace připraveného náhledu
 
 Statický výstup byl nahrán také do větve `gh-pages`. V Settings → Pages nastavte Source: Deploy from a branch, Branch: gh-pages a Folder: / (root), poté Save. Tato cesta nevyžaduje ruční spouštění workflow. Obsahuje jen veřejný výstup dist, žádný rukopis ani zdrojové přílohy. Stav publikace je nutné ověřit v GitHubu; přístup k API a github.io byl z cloudového prostředí blokován síťovou politikou. Workflow v repozitáři je ponechán jako volitelná ručně spouštěná alternativa pro režim GitHub Actions.
+
+## Heslo na celý web (dočasně)
+
+`netlify/edge-functions/password.mjs` zamyká celý web heslem (HTTP Basic; uživatelské jméno je libovolné). Heslo se nastaví v Netlify → Environment variables → `SITE_PASSWORD`. Bez této proměnné zůstane web zamčený (503). Webhook Stripe (`/api/stripe-webhook`) je z ochrany vyloučený, jinak by Stripe nedoručil události o platbách. Při spuštění prodeje soubor `netlify/edge-functions/password.mjs` smažte a znovu nasaďte.
