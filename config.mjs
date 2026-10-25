@@ -2,16 +2,16 @@
 // Prázdné údaje jsou záměrné. Web nevytváří neexistující nabídku ani potvrzení odběru.
 export const SHOPTET_PRODUCT_URL = ''; // Jen pro checkoutMode 'product' / 'cart': úplná HTTPS adresa produktu v Shoptetu.
 export default {
-  product: { name: 'Žít po italsku', subtitle: 'Umění zpomalit, cítit a opravdu žít', author: 'Linda Valešová', price: null, availability: 'pripravujeme', dispatchDate: '', format: '135 × 210 mm', pages: '160', binding: 'Měkká lepená vazba V2', parametersNote: 'Parametry podle podkladů k tisku; před prodejem potvrdíme finální podobu.', isbn: '', checkoutMode: 'stripe', verifiedCartUrl: '' },
+  product: { name: 'Žít po italsku', subtitle: 'Umění zpomalit, cítit a opravdu žít', author: 'Linda Valešová', price: 399, availability: 'skladem', dispatchDate: '', format: '135 × 210 mm', pages: '160', binding: 'Měkká lepená vazba V2', parametersNote: 'Parametry podle podkladů k tisku; před prodejem potvrdíme finální podobu.', isbn: '', checkoutMode: 'stripe', verifiedCartUrl: '' },
   // availability: pripravujeme | skladem | predprodej | vyprodano
   // checkoutMode: stripe = vlastní pokladna (Stripe + Zásilkovna, viz docs/PLATBY-A-ZASILKOVNA.md) | product | cart = odkaz do Shoptetu
   // Doprava pro vlastní pokladnu. packetaWidgetKey je veřejný 16znakový API klíč z klientské sekce Zásilkovny
   // (NE API heslo). price = cena dopravy v Kč, null = pokladna vypnutá. weightKg = hmotnost jednoho balení knihy.
-  shipping: { packetaWidgetKey: 'cb745919d3ac1483', price: null, weightKg: 0.4, maxQuantity: 5 },
+  shipping: { packetaWidgetKey: 'cb745919d3ac1483', price: 99, weightKg: 0.4, maxQuantity: 5 },
   // TODO: ověřit přímé vložení do košíku pro konkrétní Shoptet. Není použita domnělá syntaxe.
-  siteUrl: 'https://janvales74-coder.github.io/zit-po-italsku-web', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
+  siteUrl: 'https://objevitalii.cz', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
   projectUrl: '', contactEmail: '', instagramUrl: '', facebookUrl: '',
-  seller: { name: '', ico: '', address: '', invoiceNote: '' }, // invoiceNote např. 'Neplátce DPH.' – patička faktur ze Stripe.
+  seller: { name: 'Linda Valešová', ico: '23738766', address: 'K Březince 229/22, 182 00 Praha – Březiněves', invoiceNote: '' }, // invoiceNote např. 'Neplátce DPH.' – patička faktur ze Stripe.
   newsletter: { endpoint: '', emailField: 'email', consentField: 'consent', hiddenFields: {}, fallbackEmail: '', privacyReady: false },
   authorPhoto: '', // Vlastní fotografie do assets/; prázdné = označené místo pro fotografii.
   // Odstíny převzaté z dodané obálky + tmavší textové protějšky pro kontrast.

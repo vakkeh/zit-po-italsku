@@ -28,7 +28,7 @@ test('vlastní pokladna Stripe + Zásilkovna vykreslí objednávkový formulář
   for(const file of ['build.mjs','commerce.mjs','styles.css','app.js']) cpSync(new URL('../'+file,import.meta.url),join(dir,file));
   cpSync(new URL('../assets',import.meta.url),join(dir,'assets'),{recursive:true});mkdirSync(join(dir,'docs'));
   const render=c=>{writeFileSync(join(dir,'config.mjs'),`export const SHOPTET_PRODUCT_URL=''; export default ${JSON.stringify(c)}`);execFileSync(process.execPath,['build.mjs'],{cwd:dir});return readFileSync(join(dir,'dist/index.html'),'utf8');};
-  const c=structuredClone(config);c.product.checkoutMode='stripe';c.product.price=449;c.product.availability='skladem';c.siteUrl='https://kniha.example';
+  const c=structuredClone(config);c.product.checkoutMode='stripe';c.product.price=449;c.product.availability='skladem';c.siteUrl='https://kniha.example';c.shipping={...c.shipping,price:null,packetaWidgetKey:''};
   assert.ok(!render(c).includes('id="order-form"'),'bez dopravy a klíče widgetu se pokladna nezobrazí');
   c.shipping={...c.shipping,price:89,packetaWidgetKey:'abcdef0123456789'};
   const html=render(c);
