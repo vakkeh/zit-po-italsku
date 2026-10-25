@@ -356,7 +356,6 @@ footer nav button:hover{color:var(--cream)}
 /* ---------- Děkovací stránka: stejný západ slunce jako úvod ---------- */
 .thanks-hero{--sea-h:170px;--sun:min(430px,84vw);min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding-top:92px}
 .thanks-copy{display:grid;justify-items:center;text-align:center;gap:18px;position:relative;z-index:2}
-.thanks-hero .tag{margin-bottom:0}
 .thanks-hero h1{font-size:clamp(42px,min(7.4vw,10.5vh),96px);line-height:.98;max-width:13em;text-wrap:balance}
 .thanks-lead{max-width:600px;color:var(--soft);animation:letterUp 1s .5s both}
 .thanks-copy .btn{margin-top:6px;animation:letterUp 1s .6s both}
