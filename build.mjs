@@ -49,7 +49,7 @@ const values = {
   canonical: config.siteUrl ? `<link rel="canonical" href="${esc(config.siteUrl)}/">\n<meta property="og:url" content="${esc(config.siteUrl)}/">` : '',
   schema: JSON.stringify(schema).replace(/</g, '\\u003c'),
   price,
-  priceBlock: price ? `<div class="price"><b>${price}</b><span>včetně DPH</span></div>` : '',
+  priceBlock: price ? `<div class="price"><b>${price}</b><span>včetně DPH</span></div>${ready ? `<p class="ship-note">+ doprava Zásilkovnou ${czPrice(shipping.price)}</p>` : ''}` : '',
   specs: esc(`${p.binding} · ${p.pages} stran · ${p.format}`).replace(/ × /g, '&nbsp;×&nbsp;').replace(/ mm/g, '&nbsp;mm'),
   statusShort: esc(state.short),
   offerNote,

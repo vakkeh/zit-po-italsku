@@ -24,6 +24,7 @@ test('s úplným nastavením je na stránce pokladna a tlačítka na ni vedou', 
   const { html } = build(ready);
   assert.ok(html.includes('id="order-form"') && html.includes('data-packeta-key="abcdef0123456789"') && html.includes('data-price="449" data-shipping="89"'));
   assert.ok(/538\s*Kč/.test(html), 'celková cena včetně dopravy');
+  assert.ok(/\+ doprava Zásilkovnou 89\s*Kč/.test(html), 'cena dopravy je vedle ceny knihy');
   assert.ok(html.match(/href="#objednat"/g).length >= 4);
   assert.ok(!html.includes('btn-off'));
   assert.ok(html.includes('"priceCurrency":"CZK"') && html.includes('"url":"https://kniha.example/#objednat"'));
