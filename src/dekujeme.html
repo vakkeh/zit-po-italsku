@@ -1,0 +1,30 @@
+<!-- Šablona děkovací stránky (sem Stripe vrací zákazníka po zaplacení, viz success_url v server/orders.mjs). Stránka platbu neověřuje. -->
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+{{gate}}
+<meta name="theme-color" content="#FFF3DF">
+<title>Děkujeme · Žít po italsku</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap head"><a class="logo" href="./">Žít po italsku</a></div>
+</header>
+<main class="hero thanks-hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap thanks-copy">
+    <h1><span class="w">Děkujeme.</span> <span class="w"><em>Vaše italská chvíle</em></span> <span class="w">je o&nbsp;stránku blíž.</span></h1>
+    <p class="thanks-lead">Potvrzení platby vám přijde e-mailem. Jakmile knihu odešleme, Zásilkovna vám pošle kód zásilky a dá vědět, kdy si ji můžete vyzvednout. Než kniha dorazí, zkuste si dát jednu kávu bez telefonu. Jen tak, pro sebe.</p>
+    <a class="btn" href="./">Zpět ke knize</a>
+  </div>
+  <div class="thanks-book"><div class="book"><img src="assets/obalka.webp" width="512" height="800" alt="Obálka knihy Žít po italsku: slunné pobřeží, olivovníky a rozkvetlá louka" fetchpriority="high"><img class="refl" src="assets/obalka.webp" width="512" height="800" alt="" aria-hidden="true"></div></div>
+  <div class="sea" aria-hidden="true"><svg class="shore foam" viewBox="0 0 2880 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26Q180 8 360 26T720 26T1080 26T1440 26T1800 26T2160 26T2520 26T2880 26V60H0z" fill="currentColor"/></svg></div>
+</main>
+</body>
+</html>
