@@ -1,9 +1,360 @@
-/* Layout a typografie. Barvy a texty upravujte v config.mjs. */
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}button{color:inherit}button:not(:disabled),summary{cursor:pointer}img{display:block;max-width:100%;height:auto}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:400;line-height:1.18}h2{font-size:clamp(32px,3.4vw,48px);letter-spacing:-1.5px}h3{font-size:25px}p{color:var(--muted)}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:5px}a,button{touch-action:manipulation}.section-wrap{width:min(1160px,calc(100% - 96px));margin-inline:auto}.section-space{padding-block:108px}.eyebrow{font-size:10px;font-weight:600;letter-spacing:2.5px;line-height:1.6;color:var(--teal)}.button{display:inline-flex;align-items:center;justify-content:center;gap:24px;background:var(--teal);color:#fff;padding:16px 25px;min-height:54px;border:1px solid var(--teal);border-radius:3px;font-size:13px;font-weight:500;line-height:1.5;transition:background .2s,transform .2s}.button:hover{background:#174641;transform:translateY(-2px)}.button span{font-size:21px;line-height:1}.button-small{min-height:44px;padding:10px 19px;font-size:12px;gap:22px}.button-full{width:100%}.button:disabled{background:#d3d9d1;border-color:#d3d9d1;color:#41554c;cursor:not-allowed;transform:none}.header{width:min(1280px,calc(100% - 96px));margin:auto;display:flex;align-items:center;justify-content:space-between;height:112px;border-bottom:1px solid #d9ddd4;gap:24px}.brand{display:inline-block;font-family:Lora,serif;line-height:1.1;font-size:27px;letter-spacing:-1px;white-space:nowrap}.brand-dot{color:#af602d}.brand small{display:block;font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:2px;margin-top:9px}.header nav{display:flex;gap:34px;font-size:12px}.header nav a{padding:12px 0}.header nav a:hover{color:var(--teal);text-decoration:underline;text-underline-offset:6px}.hero{display:grid;grid-template-columns:1fr 1fr;min-height:706px;align-items:center;gap:38px;padding-block:52px 78px}.hero-copy{padding-bottom:15px}.hero .eyebrow{display:flex;align-items:center;gap:12px}.little-line{height:1px;width:30px;background:var(--teal)}.hero h1{font-size:clamp(75px,7.8vw,110px);line-height:1.03;letter-spacing:-5px;position:relative;margin:27px 0 22px}.hero h1 em{font-weight:400;color:var(--teal);white-space:nowrap}.title-flower{font-family:Georgia,serif;position:absolute;font-size:49px;left:168px;top:3px;color:#b48132;font-weight:400}.hero-subtitle{font-family:Lora,serif;font-size:21px;line-height:1.5;max-width:360px;color:var(--ink)}.hero-intro{font-size:14px;max-width:370px;line-height:1.9;margin-top:20px}.hero-actions{display:flex;align-items:center;gap:23px;margin-top:30px}.under-link{font-size:11px;white-space:nowrap;border-bottom:1px solid #aab6ac;padding:5px 0}.under-link span{margin-left:6px}.hero-note{font-size:10px;letter-spacing:.25px;margin-top:25px;display:flex;align-items:center;gap:8px}.hero-note span{font-size:22px;color:#846324}.hero-art{position:relative;min-height:560px;display:grid;place-items:center}.art-oval{position:absolute;inset:22px -5px -4px 13px;border-radius:50% 50% 42% 42%;background:#e9ecdf;transform:rotate(-12deg)}.book{position:relative;width:290px;transform:rotate(8deg);margin-left:15px;filter:drop-shadow(17px 23px 12px #233d3430);perspective:1000px}.book:after{content:'';position:absolute;right:-7px;top:4px;bottom:-3px;width:9px;background:repeating-linear-gradient(90deg,#eee8d6 0 1px,#fffaf0 1px 2px);transform:skewY(29deg);z-index:-1;border-radius:0 2px 2px 0}.book-cover{border-radius:1px 3px 3px 1px;box-shadow:inset 5px 0 7px #0006;width:100%;height:auto}.book:before{content:'';position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(90deg,#183d3b66,transparent);z-index:1}.book-spine{position:absolute;left:-13px;top:2px;bottom:0;width:14px;background:#d8b94b;color:#304938;font-size:6px;letter-spacing:1px;writing-mode:vertical-rl;text-align:center;padding-top:17px;transform:skewY(-21deg);border-radius:2px 0 0 2px}.round-seal{position:absolute;right:-10px;top:5px;width:109px;height:109px;border-radius:50%;border:1px solid #889e8d;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:8px;line-height:1.9;letter-spacing:1.3px;transform:rotate(10deg)}.round-seal span{font-size:29px;line-height:1.2;margin-bottom:8px}.art-caption{position:absolute;bottom:-18px;left:calc(50% - 78px);font-family:Lora,serif;font-size:14px;font-style:italic;transform:rotate(-7deg);color:var(--teal)}.olive-drawing{position:absolute;width:150px;left:-13px;bottom:4px;color:#677b5b;transform:rotate(-20deg)}.ritual-ribbon{display:flex;justify-content:center;align-items:center;gap:34px;min-height:63px;padding:16px 24px;background:#e9ebdf;border-block:1px solid #dfe2d4;font-family:Lora,serif;color:#405748;font-size:13px}.ritual-ribbon i{font-style:normal;font-size:19px;color:#7b8666}.ritual-ribbon i:last-child{display:none}.about{display:grid;grid-template-columns:190px 1fr;gap:60px}.section-label{display:flex;flex-direction:column;gap:47px;padding-top:7px}.small-sun{font-size:68px;line-height:1;color:#b79a57}.about h2{margin-top:17px;max-width:750px}.about-columns{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:31px;font-size:13px;line-height:1.9}.three-themes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:37px;border-top:1px solid #d9ddd4;padding-top:26px}.theme-symbol{font-size:25px;color:var(--teal)}.three-themes h3{font-size:18px;margin:8px 0}.three-themes p{font-size:11px}.inside{background:#f1f0e8}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:70px;margin-bottom:45px}.section-heading h2{margin-top:15px}.section-heading>p{max-width:320px;font-size:13px;line-height:1.9;padding-bottom:5px}.chapter-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.card-image{position:relative;overflow:hidden;aspect-ratio:1/.95;background:#e1e2d7}.card-image img{width:100%;height:100%;object-fit:cover;object-position:50% 44%;transition:transform .8s}.chapter-card:hover img{transform:scale(1.035)}.chapter-tag{position:absolute;bottom:16px;left:16px;background:var(--paper);padding:6px 11px;font-size:8px;letter-spacing:1.5px;color:var(--ink)}.chapter-card h3{font-size:24px;margin-top:23px;max-width:310px;line-height:1.3}.chapter-card>p{font-size:13px;line-height:1.8;margin-top:12px}.chapter-list{margin-top:41px;border-block:1px solid #d0d7ca}.chapter-list summary{padding:19px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;list-style:none}.chapter-list summary span,.delivery summary span{font-size:22px}.chapter-list ol{columns:2;gap:50px;margin:12px 0 25px;padding-left:27px;font-size:13px;line-height:2.3}.chapter-list li{break-inside:avoid;padding-left:5px}.chapter-list>p{font-size:12px;padding-bottom:25px}.excerpt{background:var(--teal);text-align:center;color:#fff9e8}.excerpt .section-wrap{max-width:900px}.excerpt .eyebrow{color:#d3dfca}.quote-mark{display:block;font-family:Lora,serif;font-size:90px;line-height:.8;color:#d9bb6d;margin:10px 0 28px}.excerpt blockquote{font-family:Lora,serif;font-size:clamp(26px,3vw,39px);line-height:1.6;margin:0;letter-spacing:-.7px}.attribution{color:#dce4d8;font-size:10px;letter-spacing:1.2px;margin-top:28px}.second-quote{margin:27px auto 0;max-width:700px}.second-quote summary{font-size:11px;list-style:none;color:#e9eddc;text-decoration:underline;text-underline-offset:6px}.second-quote summary span{margin-left:12px}.second-quote blockquote{margin-top:30px;font-size:26px}.author{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:106px;padding-block:125px 130px}.author-art{position:relative;padding:0 40px 20px 0}.author-art>img{width:100%;height:470px;object-fit:cover;object-position:center 33%;border-radius:180px 180px 1px 1px}.photo-placeholder{position:absolute;bottom:0;right:0;display:flex;flex-direction:column;justify-content:center;align-items:center;width:164px;min-height:180px;background:#e9ecdf;border:7px solid var(--paper);text-align:center;padding:15px}.photo-placeholder>span{font-family:Lora,serif;font-size:50px;line-height:1.4;color:var(--teal)}.photo-placeholder small{font-size:9px;line-height:1.7}.photo-placeholder img{width:100%;height:170px;object-fit:cover}.author-caption{position:absolute;bottom:-25px;left:15px;font-family:Lora,serif;font-style:italic;font-size:15px;color:var(--teal);transform:rotate(-5deg)}.author-copy h2{margin-top:15px}.serif-intro{font-family:Lora,serif;font-size:23px;line-height:1.5;color:var(--teal);margin:23px 0}.author-copy>p:not(.eyebrow):not(.serif-intro){font-size:13px;margin:17px 0}.text-link{display:inline-flex;gap:22px;align-items:center;margin-top:15px;color:var(--teal);border-bottom:1px solid #8a9f8b;font-size:12px;padding-bottom:5px}.pending-link{display:block;font-size:11px;color:var(--muted);margin-top:22px}.purchase{background:#e8ecdf}.purchase-grid{display:grid;grid-template-columns:1fr 440px;gap:110px;align-items:center}.purchase h2{margin-top:20px}.purchase-copy>p:not(.eyebrow){margin-top:25px;font-size:14px;max-width:340px}.purchase-drawing{display:block;font-size:115px;line-height:1;color:#8a935f;margin-top:40px}.purchase-card{padding:35px 37px;background:var(--paper);box-shadow:0 12px 35px #2c46390c;border:1px solid #d5dccf}.availability{display:inline-flex;align-items:center;gap:8px;font-size:10px;color:var(--teal);margin-bottom:19px}.availability span{font-size:7px}.purchase-card h3{font-size:29px}.product-author{font-size:11px;margin-top:8px}.price{font-family:Lora,serif;font-size:28px;color:var(--ink);margin:23px 0;line-height:1.4}.price small{font-family:'DM Sans',sans-serif;font-size:10px;margin-left:12px;display:inline-block}dl{font-size:12px;margin:0}dl>div{display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-bottom:1px solid #dce0d5}dt{color:var(--muted)}dd{text-align:right;margin:0}.fine-print{font-size:10px;line-height:1.8;margin-top:12px}.pending-note{font-size:12px;background:#efeee3;padding:12px 15px;margin:20px 0 15px}.secure{font-size:10px;text-align:center;margin-top:12px}.delivery{border-top:1px solid #dce0d5;margin-top:23px}.delivery summary{display:flex;justify-content:space-between;align-items:center;font-size:11px;padding-top:13px;list-style:none}.delivery p{font-size:11px;margin-top:13px}.purchase-card>.button{margin-top:19px}.pending-note+.button{margin-top:0}.review-placeholders{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.review-placeholders>div{border:1px dashed #b8c5b4;padding:26px 25px}.review-placeholders span{font-size:10px;letter-spacing:2px;color:#677660}.review-placeholders p{font-family:Lora,serif;font-size:20px;color:var(--ink);margin:14px 0}.review-placeholders small{font-size:10px;color:var(--muted)}.newsletter{background:#f0e9d7;border-block:1px solid #e6dfcd}.newsletter-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}.newsletter h2{margin:17px 0 24px}.newsletter-grid>div>p:not(.eyebrow){font-size:13px;max-width:330px}.newsletter-form-wrap{padding-top:25px}form>label{display:block;font-size:11px;margin-bottom:8px}.email-row{display:flex;gap:8px}input[type=email]{min-width:0;width:100%;padding:14px 15px;background:var(--paper);color:var(--ink);border:1px solid #b1b9a8;border-radius:2px;font-size:12px}input[type=email]:disabled{background:#f7f3e9;color:#616b61}.email-row .button{font-size:11px;white-space:nowrap;padding:14px;gap:12px}.consent{display:flex;align-items:start;gap:9px;margin-top:19px;font-size:10px;line-height:1.8}.consent input{flex:none;margin:3px 0;width:16px;height:16px;accent-color:var(--teal)}.inline-link{background:none;border:0;text-decoration:underline;padding:0;font-size:inherit}.form-status{font-size:11px;margin-top:15px}.footer{padding-top:55px;padding-bottom:30px}.footer-top{display:flex;justify-content:space-between;gap:40px;padding-bottom:39px}.footer-top p{font-size:11px;margin-top:12px}.footer-contact{display:flex;gap:20px;align-items:center}.footer-contact .text-link{margin-top:0}.footer-bottom{border-top:1px solid #d9ddd4;padding-top:21px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--muted);gap:20px}.footer-bottom>div{display:flex;flex-wrap:wrap;gap:17px}.footer-bottom button{padding:7px 0;background:none;border:0;font-size:10px;text-decoration:underline;text-underline-offset:3px}.footer>.fine-print{font-size:9px;margin-top:14px}.mobile-order{display:none}.skip-link{position:fixed;top:-100px;left:15px;z-index:100;background:var(--teal);color:white;padding:12px}.skip-link:focus{top:15px}dialog{border:1px solid #c8d1c1;border-radius:4px;padding:48px;width:min(700px,calc(100% - 32px));max-height:85vh;background:var(--paper);color:var(--ink)}dialog::backdrop{background:#16322eaa;backdrop-filter:blur(3px)}dialog h2{font-size:31px;margin:18px 0 25px}dialog p{font-size:14px;margin-top:16px}.dialog-close{position:absolute;right:17px;top:10px;border:0;background:none;font-size:32px;width:44px;height:44px}.thankyou{max-width:850px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:start;gap:30px}.thankyou h1{font-size:clamp(35px,5vw,65px)}.thankyou .fine-print{font-size:13px}.cookie-banner{position:fixed;bottom:20px;left:20px;right:20px;background:var(--paper);border:1px solid var(--teal);padding:20px;z-index:20}.cookie-banner button{margin:8px;padding:10px}.reveal.is-pending{opacity:0;transform:translateY(20px)}.reveal{transition:opacity .6s,transform .6s}
-@media(min-width:1440px){.hero{min-height:750px}.hero-art{min-height:600px}.book{width:315px}.round-seal{right:5px;top:5px}}
-@media(max-width:1100px){.section-wrap{width:calc(100% - 64px)}.header{width:calc(100% - 64px)}.header nav{gap:20px}.hero-actions{gap:15px;flex-wrap:wrap}.hero h1{font-size:88px}.hero-art{min-height:520px}.book{width:260px}.round-seal{right:-8px;width:95px;height:95px}.hero{gap:20px}.about{grid-template-columns:130px 1fr;gap:35px}.author{gap:60px}.purchase-grid{grid-template-columns:1fr 400px;gap:50px}.newsletter-grid{gap:55px}.chapter-cards{gap:23px}.ritual-ribbon{gap:23px;font-size:11px}}
-@media(max-width:800px){.header{height:94px}.header nav{display:none}.hero{min-height:unset;padding-block:50px 65px;gap:20px}.hero h1{font-size:72px;letter-spacing:-3px}.title-flower{left:125px;font-size:36px}.hero-subtitle{font-size:19px}.hero-intro{font-size:12px}.hero-art{min-height:450px}.book{width:215px}.round-seal{width:78px;height:78px;font-size:6px;top:8px;right:-10px}.round-seal span{font-size:24px}.art-caption{font-size:12px;bottom:0}.olive-drawing{width:105px;bottom:35px;left:-10px}.art-oval{inset:45px -5px 20px 0}.hero .eyebrow{font-size:8px;letter-spacing:1.6px}.hero-note{font-size:9px}.ritual-ribbon{gap:15px;flex-wrap:wrap}.section-space{padding-block:75px}.about{grid-template-columns:1fr;gap:25px}.section-label{flex-direction:row;justify-content:space-between;align-items:center}.small-sun{font-size:39px}.about-columns{gap:25px}.section-heading{gap:30px}.section-heading>p{max-width:250px;font-size:12px}.chapter-cards{gap:18px}.chapter-card h3{font-size:21px}.chapter-card>p{font-size:12px}.card-image{aspect-ratio:1/1.15}.chapter-tag{left:8px;bottom:8px;font-size:7px;padding:5px 7px}.author{gap:35px}.author-art{padding-right:20px}.author-art>img{height:430px}.photo-placeholder{width:125px;min-height:145px}.author-copy>p:not(.eyebrow):not(.serif-intro){font-size:12px}.serif-intro{font-size:19px}.purchase-grid{gap:35px;grid-template-columns:1fr 1.1fr}.purchase-card{padding:27px 25px}.purchase h2{font-size:34px}.purchase-copy>p:not(.eyebrow){font-size:12px}.newsletter-grid{gap:35px}.email-row{flex-wrap:wrap}.email-row .button{width:100%}.footer-contact{flex-wrap:wrap;justify-content:end}.review-placeholders{gap:16px}.review-placeholders>div{padding:20px 16px}.review-placeholders p{font-size:18px}}
-@media(max-width:600px){html{scroll-padding-top:20px}.section-wrap,.header{width:calc(100% - 40px)}.header{height:84px;gap:15px}.brand{font-size:23px}.brand small{font-size:6px;letter-spacing:1.5px;margin-top:7px}.button-small{font-size:10px;gap:12px;padding:10px 12px;min-height:42px}.hero{grid-template-columns:1fr;padding-top:38px;gap:17px;padding-bottom:39px}.hero-copy{padding-bottom:0}.hero h1{font-size:clamp(70px,21vw,90px);margin:22px 0 20px;letter-spacing:-4px}.title-flower{left:151px;top:8px;font-size:42px}.hero .eyebrow{font-size:9px}.hero-subtitle{font-size:21px;max-width:320px}.hero-intro{font-size:13px;max-width:330px;margin-top:16px}.hero-actions{margin-top:25px;gap:19px}.hero-actions .button{font-size:12px;gap:18px;padding:14px 19px}.under-link{font-size:10px}.hero-note{margin-top:18px;font-size:9px}.hero-art{width:100%;max-width:390px;min-height:460px;margin:auto}.book{width:228px;margin-left:0;transform:rotate(7deg)}.art-oval{inset:28px 7px 13px}.round-seal{width:88px;height:88px;font-size:7px;right:0;top:13px}.round-seal span{font-size:24px}.art-caption{bottom:-2px;font-size:13px}.olive-drawing{width:110px;left:0;bottom:25px}.ritual-ribbon{gap:8px 16px;min-height:77px;padding:17px 20px;font-size:10px}.ritual-ribbon i{font-size:15px}.ritual-ribbon i:nth-child(4){display:none}.ritual-ribbon span{white-space:nowrap}.section-space{padding-block:62px}.section-label{padding:0}.small-sun{font-size:34px}.about{gap:24px}.about h2{font-size:32px;letter-spacing:-1px;line-height:1.3}.about-main>.eyebrow{font-size:8px;letter-spacing:1.8px}.about-columns{grid-template-columns:1fr;gap:16px;margin-top:25px;font-size:13px}.three-themes{gap:10px;margin-top:28px;padding-top:22px}.three-themes h3{font-size:16px}.three-themes p{font-size:10px;line-height:1.7}.theme-symbol{font-size:24px}.section-heading{display:block;margin-bottom:30px}.section-heading>p{max-width:unset;margin-top:21px;font-size:13px}.section-heading h2{font-size:35px;line-height:1.25}.chapter-cards{grid-template-columns:1fr;gap:36px}.card-image{aspect-ratio:1/.95}.chapter-tag{left:15px;bottom:15px;font-size:8px;padding:6px 10px}.chapter-card h3{font-size:25px;max-width:unset;margin-top:20px}.chapter-card>p{font-size:13px;margin-top:9px}.chapter-list{margin-top:30px}.chapter-list summary{font-size:11px}.chapter-list ol{columns:1;font-size:12px;line-height:2.1}.excerpt .eyebrow{font-size:8px;letter-spacing:2px}.excerpt blockquote{font-size:25px;line-height:1.6;letter-spacing:-.4px}.excerpt blockquote br{display:none}.quote-mark{font-size:75px;margin-bottom:15px}.attribution{font-size:8px;letter-spacing:.5px;margin-top:24px}.second-quote summary{font-size:10px}.second-quote blockquote{font-size:22px}.author{grid-template-columns:1fr;gap:65px}.author-art{width:100%;max-width:390px;margin:auto;padding-right:32px}.author-art>img{height:420px}.photo-placeholder{width:144px;min-height:160px}.photo-placeholder small{font-size:8px}.author-copy h2{font-size:36px}.author-copy>p:not(.eyebrow):not(.serif-intro){font-size:13px;line-height:1.9}.serif-intro{font-size:22px;margin:21px 0}.purchase-grid{grid-template-columns:1fr;gap:30px}.purchase h2{font-size:35px}.purchase-copy>p:not(.eyebrow){font-size:13px;margin-top:20px}.purchase-drawing{display:none}.purchase-card{padding:27px 25px}.price{font-size:26px}.review-placeholders{grid-template-columns:1fr;gap:13px}.review-placeholders>div{padding:20px 23px}.review-placeholders p{margin:6px 0;font-size:20px}.newsletter-grid{grid-template-columns:1fr;gap:24px}.newsletter h2{font-size:35px}.newsletter-form-wrap{padding-top:0}.email-row{flex-wrap:nowrap;gap:7px}.email-row .button{width:auto;font-size:10px;gap:9px;padding:12px 10px}.email-row .button span{font-size:18px}input[type=email]{font-size:16px;padding:12px 10px}.consent{font-size:10px}.footer{padding-block:38px 95px}.footer-top{display:block;padding-bottom:25px}.footer-contact{justify-content:start;margin-top:23px;gap:17px}.footer-bottom{display:block;font-size:9px}.footer-bottom>div{margin-top:14px;gap:7px 16px}.footer-bottom button{font-size:9px}.mobile-order{display:block;position:fixed;bottom:0;left:0;right:0;padding:9px 20px max(9px,env(safe-area-inset-bottom));background:#fcf9f2f5;border-top:1px solid #d9ddd4;z-index:10;backdrop-filter:blur(8px)}.mobile-order .button{min-height:44px;font-size:12px;padding:10px 20px}.mobile-order.is-hidden{visibility:hidden}dialog{padding:40px 24px}dialog h2{font-size:27px}dialog p{font-size:13px}.thankyou{padding-bottom:70px}.thankyou h1{font-size:38px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal.is-pending{opacity:1;transform:none}}
-.arrow-icon{display:inline-block;flex:none;vertical-align:middle}.button .arrow-icon{width:18px;height:18px}.button-small .arrow-icon{width:15px;height:15px}
-@media(max-width:1100px){.art-oval{transform:rotate(-12deg) scale(.85)}}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:300 600;font-display:swap;src:url('assets/fonts/commissioner-latin-ext-wght-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:300 600;font-display:swap;src:url('assets/fonts/commissioner-latin-wght-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 700;font-display:swap;src:url('assets/fonts/cormorant-garamond-latin-ext-wght-italic.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 700;font-display:swap;src:url('assets/fonts/cormorant-garamond-latin-wght-italic.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/cormorant-garamond-latin-ext-wght-normal.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/cormorant-garamond-latin-wght-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* Žít po italsku · Dolce vita. Zlatá hodinka nad mořem: broskvové nebe, slunce, tmavě tyrkysová hladina.
+   Layout: velký centrovaný titul s knihou na horizontu, pak „Italský den“ jako lepicí příběh při scrollu.
+   Texty jsou v src/index.html, cena, dostupnost a odkazy v config.mjs. */
+:root{
+  --cream:#FFF7EC;      /* podklad */
+  --peach:#F8CFA6;      /* nebe při západu */
+  --coral:#E77E5A;      /* slunce, akcent */
+  --gold:#ECB24C;       /* zlaté světlo */
+  --sea:#13505F;        /* hladina, tlačítka */
+  --sea-2:#2E7F86;      /* světlejší voda */
+  --ink:#1F3A44;        /* text */
+  --soft:#5B6B6D;       /* vedlejší text */
+  --day:#FFF1D8;        /* barva sekce dne, mění ji skript */
+  --line:rgba(31,58,68,.15);
+  --display:'Cormorant Garamond','Cormorant',Garamond,Georgia,serif;
+  --body:'Commissioner','Optima','Candara',system-ui,sans-serif;
+  --gutter:max(20px,env(safe-area-inset-left,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.7;font-weight:330;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{width:min(1200px,100%);margin-inline:auto;padding-left:var(--gutter);padding-right:max(20px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--display);font-style:italic;font-size:24px;font-weight:500;color:var(--coral)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:4px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;background:var(--sea);color:var(--cream);text-decoration:none;font-family:var(--body);font-weight:450;font-size:17px;letter-spacing:.03em;padding:18px 32px;border-radius:4px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(19,80,95,.8)}
+.btn .bp{padding-left:14px;border-left:1px solid rgba(255,247,236,.35);font-variant-numeric:tabular-nums}
+.link{text-decoration:none;border-bottom:1px solid var(--coral);padding-bottom:2px;transition:color .2s}
+.link:hover{color:var(--coral)}
+
+/* ---------- Hlavička ---------- */
+header{position:absolute;left:0;right:0;top:0;z-index:20}
+.head{display:flex;justify-content:space-between;align-items:center;height:84px;gap:20px}
+.logo{font-family:var(--display);font-style:italic;font-weight:600;font-size:28px;text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:34px;font-size:15px}
+nav a{text-decoration:none;opacity:.85}
+nav a:hover{opacity:1;color:var(--sea)}
+.head .btn{padding:11px 20px;font-size:15px}
+.head .btn .bp{padding-left:12px}
+
+/* ---------- Hero: slunce nad mořem ---------- */
+.hero{--sea-h:300px;--sun:440px;position:relative;overflow:hidden;background:linear-gradient(180deg,#FFF3DF 0%,#FCE1BE 40%,var(--peach) 66%,#F4B998 82%);padding-top:120px}
+.sun{position:absolute;left:50%;bottom:calc(var(--sea-h) - var(--sun) * .38);width:var(--sun);aspect-ratio:1;border-radius:50%;translate:-50% 0;background:radial-gradient(circle at 50% 45%,#FFE6A6 0%,var(--gold) 42%,var(--coral) 100%);animation:sunrise 2.4s cubic-bezier(.2,.8,.2,1) both;filter:saturate(1.05)}
+@keyframes sunrise{from{transform:translateY(180px);opacity:.3}to{transform:none;opacity:1}}
+.hero h1{position:relative;text-align:center;font-size:clamp(76px,13vw,200px);font-weight:500;letter-spacing:-.025em;line-height:.88;color:var(--ink);z-index:2}
+.hero h1 em{font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;animation:letterUp 1.2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2){animation-delay:.12s}.hero h1 .w:nth-child(3){animation-delay:.24s}
+@keyframes letterUp{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+.hero .tag{text-align:center;margin-bottom:22px;animation:letterUp 1s both}
+.scene{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:90px;margin-top:8px;z-index:3}
+.scene .lead{text-wrap:balance;font-family:var(--display);font-size:27px;line-height:1.3;font-weight:500;padding-top:120px;max-width:320px;justify-self:end;text-align:right;animation:letterUp 1s .5s both}
+.buybox{padding-top:110px;max-width:330px;animation:letterUp 1s .65s both}
+.buybox p{font-size:15px;color:var(--ink);margin-top:14px;opacity:.85}
+.book{width:min(270px,58vw);position:relative;animation:rise 1.6s .3s cubic-bezier(.2,.8,.2,1) both}
+.book>img{border-radius:2px 5px 5px 2px;box-shadow:0 30px 40px -30px rgba(19,60,70,.7)}
+.book::before{content:"";position:absolute;inset:0 auto 0 0;width:12px;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.2) 50%,transparent);z-index:1;border-radius:2px 0 0 2px}
+.book .refl{position:absolute;left:0;top:100%;width:100%;margin-top:3px;transform:scaleY(-1);opacity:.2;filter:blur(2.5px) saturate(.7);pointer-events:none;
+  -webkit-mask:linear-gradient(to top,#000 0%,transparent 30%),linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);-webkit-mask-composite:source-in;mask:linear-gradient(to top,#000 0%,transparent 30%) intersect,linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);animation:ripple 5s ease-in-out infinite}
+@keyframes ripple{0%,100%{transform:scaleY(-1) scaleX(1)}50%{transform:scaleY(-1) scaleX(1.018) skewX(.6deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(120px)}to{opacity:1;transform:none}}
+/* Moře: přechod od světlého horizontu do hloubky, třpyt slunce a vlnky kreslí canvas. */
+.sea{position:relative;height:var(--sea-h);margin-top:-72px;z-index:1;overflow:hidden;background:linear-gradient(180deg,#7DB6AE 0%,#4C9A9C 14%,#2A7680 45%,#175C69 75%,#13505F 100%)}
+.sea::before{content:"";position:absolute;inset:0 0 auto;height:30px;background:linear-gradient(180deg,rgba(250,214,170,.6),transparent);z-index:2}
+.sea canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+/* Pobřeží: pěna a písek v barvě další sekce, vlny pomalu omývají břeh. */
+.shore{position:absolute;left:0;bottom:-1px;width:200%;height:56px;z-index:2;pointer-events:none}
+.sea::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(110,196,186,0),rgba(110,196,186,.42) 70%,rgba(150,214,200,.6))}
+.shore.foam{color:rgba(255,252,244,.78);height:64px;animation:shore 16s linear infinite,wash 6s ease-in-out infinite}
+.shore.sand{color:var(--day);transition:color 1.2s ease;animation:shore 34s linear infinite reverse}
+@keyframes shore{to{transform:translateX(-50%)}}
+@keyframes wash{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.trust{position:absolute;left:0;right:0;bottom:0;z-index:3;text-shadow:0 1px 6px rgba(10,50,60,.6);display:flex;justify-content:center;flex-wrap:wrap;gap:6px 28px;color:#E3F1F1;font-size:14.5px;letter-spacing:.04em;padding:0 20px 70px}
+.trust span{display:inline-flex;align-items:center;gap:10px}
+.trust span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold);margin-right:18px}
+
+/* ---------- Jeden italský den ---------- */
+.day{background:var(--day);transition:background-color 1.2s ease;padding-bottom:68px}
+.day-intro{text-align:center;padding-block:120px 40px}
+.day-intro h2{font-size:clamp(46px,6vw,84px);margin-top:16px}
+.day-intro h2 em{color:var(--coral)}
+.day-intro p{max-width:600px;margin:22px auto 0;color:var(--soft)}
+.story{--gap:80px;display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);container-type:inline-size}
+.frame{position:sticky;top:12vh;height:76vh;border-radius:300px 300px 12px 12px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(19,60,70,.6);background:var(--peach)}
+@supports (width:1cqi){.frame{--fh:min(76vh,(100cqi - var(--gap)) * .625);height:var(--fh);top:calc(50vh - var(--fh) / 2)}}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s ease,transform 6s ease}
+.frame img.on{opacity:1;transform:scale(1)}
+.steps{padding-block:6vh 12vh}
+.step{min-height:76vh;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity .6s}
+.step.on{opacity:1}
+.step time{font-family:var(--display);font-style:italic;font-size:clamp(70px,8vw,120px);font-weight:500;line-height:1;color:var(--coral);font-variant-numeric:tabular-nums}
+.step h3{font-size:clamp(34px,3.4vw,46px);margin:10px 0 18px}
+.step p{color:var(--soft);max-width:440px}
+.step h3,.step p{text-wrap:pretty}
+.step .ch{margin-top:16px;font-family:var(--display);font-style:italic;font-size:20px;color:var(--sea-2)}
+.step img{display:none}
+
+/* ---------- Obsah knihy ---------- */
+/* Obsah jako rozevřená kniha ve skutečném formátu 135 × 210 mm. */
+/* Obsah: na stránce jen jedna věta, celý obsah v panelu na vyžádání */
+.ov-line{text-align:center;padding-top:96px}
+.ov-sentence{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(23px,2.3vw,29px);line-height:1.35;color:var(--ink);max-width:640px;margin:0 auto;text-wrap:balance}
+.toc-link{margin-top:16px;background:none;border:0;padding:4px 2px;font-family:var(--body);font-size:16px;color:var(--ink);border-bottom:1px solid var(--coral);cursor:pointer;transition:color .2s}
+.toc-link:hover{color:var(--coral)}
+.toc-link::after{content:" →";color:var(--coral)}
+.toc-panel{position:fixed;inset:0;z-index:60;display:flex;justify-content:flex-end;background:rgba(31,58,68,.32);backdrop-filter:blur(3px);animation:fadeIn .35s ease}
+.toc-panel[hidden]{display:none}
+.toc-sheet{position:relative;width:min(460px,100%);height:100%;overflow:auto;background:#FFFCF4;padding:64px 46px 48px;box-shadow:-30px 0 60px -30px rgba(0,0,0,.35);animation:sheetIn .5s cubic-bezier(.2,.8,.2,1)}
+.toc-sheet h3{font-family:var(--display);font-style:italic;font-weight:500;font-size:40px;text-align:center;margin-bottom:26px}
+.toc-sheet ol{list-style:none;margin:0;padding:0;font-family:var(--display);font-weight:500;font-size:19px;line-height:1.25}
+.toc-sheet li{display:grid;grid-template-columns:2.6em 1fr;gap:.5em;padding:7px 0;border-bottom:1px solid var(--line)}
+.toc-sheet li i{font-style:normal;font-variant:small-caps;color:var(--coral);text-align:right}
+.toc-sheet li.x{font-style:italic;color:var(--soft)}
+.toc-foot{margin-top:22px;text-align:center;color:var(--soft);font-size:14px}
+.toc-close{position:absolute;right:18px;top:16px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:none;font-size:24px;line-height:1;color:var(--ink);cursor:pointer}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes sheetIn{from{transform:translateX(40px);opacity:0}}
+@keyframes sheetUp{from{transform:translateY(60px);opacity:0}}
+/* ---------- Citát: pruh moře mezi dvěma břehy ---------- */
+.quote{position:relative;overflow:hidden;text-align:center;color:var(--cream);padding-block:190px;
+  background:linear-gradient(180deg,#9AD3C6 0%,#4C9A9C 15%,#226C78 40%,#1A5F6C 60%,#3F8F95 85%,#9AD3C6 100%)}
+.quote canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.quote .wrap{position:relative;z-index:3}
+.quote blockquote{text-wrap:balance;margin:0 auto;max-width:900px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(36px,4.8vw,64px);line-height:1.12;text-shadow:0 2px 28px rgba(10,50,60,.35)}
+.quote cite{display:block;margin-top:28px;font-family:var(--display);font-style:normal;font-size:22px;color:#FFE3A6}
+.shore.top{top:-1px;bottom:auto}
+.shore.cream{color:var(--cream)}
+
+/* ---------- Autorka: oblouk a za ním vycházející slunce z úvodu ---------- */
+.author{padding-block:140px 130px;display:grid;grid-template-columns:auto 1fr;gap:100px;align-items:center}
+.portrait{position:relative;width:380px;max-width:100%}
+.portrait::before{content:"";position:absolute;left:50%;top:-52px;width:80%;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(circle at 50% 45%,#FFE6A6 0%,var(--gold) 42%,var(--coral) 100%)}
+.portrait img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:200px 200px 14px 14px;box-shadow:0 40px 60px -40px rgba(19,60,70,.6)}
+.author h2{font-size:clamp(48px,5.4vw,76px);margin:0 0 22px}
+.author .big{font-family:var(--display);font-size:28px;font-weight:500;line-height:1.3;font-style:italic;color:var(--sea);margin-bottom:22px}
+.author p{color:var(--soft);max-width:600px}
+.author p+p{margin-top:14px}
+.author .link{display:inline-block;margin-top:26px;color:var(--ink)}
+
+/* ---------- Nákup: druhý den ráno, kniha znovu na horizontu ---------- */
+.offer{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--cream) 0%,#FFF1D6 30%,#FCE0B4 64%,#F8CD9E 100%)}
+.offer-grid{position:relative;z-index:3;display:grid;grid-template-columns:1.05fr .95fr;align-items:end;gap:60px;padding-top:120px}
+.offer-copy{padding-bottom:150px}
+.offer h2{font-size:clamp(42px,4.6vw,64px);margin-bottom:22px}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px}
+.price b{font-family:var(--display);font-size:clamp(60px,7vw,76px);font-weight:600;line-height:1;white-space:nowrap}
+.price span{color:var(--ink);opacity:.75;font-size:15px}
+.specs{font-size:15px;opacity:.8}
+.offer .note{margin:22px 0 30px;max-width:440px}
+.pay{margin-top:18px;font-size:14px;opacity:.8}
+.offer-scene{position:relative;justify-self:center;display:grid;justify-items:center;--sun:420px}
+.offer-scene::before{content:"";position:absolute;left:50%;bottom:72px;width:var(--sun);height:calc(var(--sun) * .62);translate:-50% 0;z-index:-1;--r:calc(var(--sun) / 2);
+  background:radial-gradient(circle var(--r) at 50% var(--r),#FFF1C4 0,var(--gold) calc(var(--r) * .5),#F2A25E calc(var(--r) - 1px),transparent var(--r))}
+.offer .book{width:min(250px,60vw);animation:none}
+.offer-sea{position:relative;height:230px;margin-top:-72px;z-index:1;overflow:hidden;background:linear-gradient(180deg,#86C0B6 0%,#4C9A9C 18%,#2A7680 55%,#1C6370 100%)}
+.offer-sea canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.offer-sea::before{content:"";position:absolute;inset:0 0 auto;height:28px;background:linear-gradient(180deg,rgba(252,224,180,.6),transparent);z-index:2}
+.offer-sea::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:110px;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(28,99,112,0),rgba(28,99,112,.85) 70%,#1C6370)}
+.offer-sea-cta{display:none}
+
+/* ---------- FAQ ---------- */
+.faq{padding-block:20px 110px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px 80px;align-items:start}
+.faq h2{font-size:clamp(40px,4.4vw,58px)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font-size:19px;font-weight:450;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:14px;height:14px;border-right:1.5px solid var(--coral);border-bottom:1.5px solid var(--coral);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding-bottom:24px;color:var(--soft)}
+
+/* ---------- Patička: hluboké moře za břehem ---------- */
+footer{position:relative;overflow:hidden;color:#D3E6E4;padding-block:40px 120px;font-size:15px;background:linear-gradient(180deg,#1C6370 0%,#14525E 45%,#0F4350 100%)}
+footer .foot{position:relative;z-index:3}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+footer .logo{color:var(--cream);font-size:34px}
+footer nav{flex-wrap:wrap;gap:10px 26px;font-size:14px}
+footer nav a{text-decoration:none}
+footer nav a:hover{color:var(--cream)}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;align-items:center;gap:14px;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(255,247,236,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.dock.show{transform:none}
+.dock img{width:38px;box-shadow:0 4px 10px -4px rgba(0,0,0,.4)}
+.dock div{flex:1;line-height:1.2}
+.dock b{font-family:var(--display);font-size:24px;font-weight:600;display:block}
+.dock small{font-size:13px;color:var(--soft)}
+.dock .btn{padding:13px 22px}
+
+
+.nw{white-space:nowrap}
+.sea-cta,.dots,.scene::before{display:none}
+.btn-light{background:var(--cream);color:var(--sea)}
+.btn-light .bp{border-left-color:rgba(19,80,95,.25)}
+.js .reveal{transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.wait{opacity:0;transform:translateY(34px)}
+
+/* Notebook a tablet: úvod pod sebou (text, tlačítko, kniha na slunci). */
+@media (max-width:1199px){
+  .hero{--sea-h:290px;--sun:min(400px,86vw);padding-top:104px}
+  .hero h1{font-size:clamp(44px,14.5vw,128px);line-height:.95}
+  .scene{grid-template-columns:1fr;justify-items:center;gap:0;margin-top:18px}
+  .scene .lead{order:-2;text-align:center;justify-self:center;padding:0 0 22px;font-size:clamp(21px,3vw,26px);max-width:520px}
+  .buybox{order:-1;padding:0 0 36px;text-align:center;justify-self:center}
+  .sea{margin-top:-62px}
+  .story{--gap:48px}
+  .day-intro{padding-block:100px 30px}
+}
+/* Tablet na výšku a menší: navigace pryč, sekce pod sebou. */
+@media (max-width:960px){
+  header nav{display:none}
+  .author{grid-template-columns:1fr;gap:64px;justify-items:center;text-align:center}
+  .author p{margin-inline:auto}
+  .portrait{width:min(320px,76vw)}
+  .offer-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:10px;padding-top:96px}
+  .offer-copy{padding-bottom:34px}
+  .offer .price{justify-content:center}
+  .offer .note{margin-inline:auto}
+  .faq{grid-template-columns:1fr;gap:24px}
+  .dock{display:flex}
+}
+/* ===== Telefon: vlastní rozvržení ===== */
+@media (max-width:699px){
+  body{font-size:17px}
+  .head{height:64px}
+  .logo{font-size:22px}
+  .head .btn{padding:9px 16px;font-size:14px}
+  .head .btn .bp{display:none}
+
+  /* Úvod jako jeden celý obraz: titul, kniha na horizontu, tlačítko na moři */
+  .hero{--sun:min(320px,82vw);padding-top:74px}
+  .sun{display:none}
+  .hero .tag{font-size:19px;margin-bottom:8px}
+  .hero h1{font-size:clamp(54px,19vw,86px);line-height:.92}
+  .hero h1 .nw{display:block}
+  .scene{margin-top:14px}
+  .scene .lead{font-size:19px;line-height:1.35;padding-bottom:20px;max-width:310px}
+  .buybox{display:none}
+  .book{width:min(44vw,188px)}
+  .scene::before{content:"";display:block;position:absolute;left:50%;bottom:56px;width:var(--sun);height:calc(var(--sun) * .62);translate:-50% 0;z-index:-1;--r:calc(var(--sun) / 2);
+    background:radial-gradient(circle var(--r) at 50% var(--r),#FFE6A6 0,var(--gold) calc(var(--r) * .45),var(--coral) calc(var(--r) - 1px),transparent var(--r));transform-origin:50% 100%;animation:sunM 2s cubic-bezier(.2,.8,.2,1) both}
+  .sea{height:auto;margin-top:-56px;padding:82px 20px 62px}
+  .shore{height:40px}
+  .shore.foam{height:46px}
+  .sea-cta{display:block;position:relative;z-index:3;text-align:center}
+  .sea-cta .btn{width:100%;max-width:360px;padding-block:17px}
+  .trust{position:relative;padding:16px 0 0;gap:4px 14px;font-size:13.5px;letter-spacing:.02em}
+  .trust span+span::before{margin-right:4px}
+  .trust span:first-child{display:none}
+  .trust span:nth-child(2)::before{display:none}
+
+  /* Italský den: karty, které se posouvají do strany */
+  .day{padding-bottom:0}
+  .day-intro{padding-block:64px 22px}
+  .day-intro h2{font-size:40px}
+  .day-intro p{font-size:16.5px}
+  .story{display:block;padding-inline:0}
+  .frame{display:none}
+  .steps{position:relative;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;scroll-padding-inline:20px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:0 0 84%;min-height:0;opacity:1;justify-content:flex-start;scroll-snap-align:center;background:none;padding:0}
+  .step>:not(img){padding-inline:4px}
+  .step img{display:block;width:100%;max-width:none;aspect-ratio:1/1;object-fit:cover;border-radius:160px 160px 14px 14px;margin-bottom:16px;box-shadow:0 24px 40px -28px rgba(19,60,70,.55)}
+  .step time{font-size:50px}
+  .step h3{font-size:27px;margin:2px 0 8px}
+  .step p{font-size:16px;line-height:1.6}
+  .step .ch{font-size:17px;margin-top:10px}
+  .dots{display:flex;justify-content:center;gap:10px;padding:6px 0 56px}
+  .dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:var(--ink);opacity:.22;transition:width .3s,opacity .3s;cursor:pointer}
+  .dots button.on{width:24px;opacity:.75}
+
+  /* Obsah: prvních šest položek, zbytek na klepnutí */
+  .ov-line{padding:6px 20px 66px}
+  .toc-panel{align-items:flex-end}
+  .toc-sheet{height:86vh;width:100%;border-radius:22px 22px 0 0;padding:52px 22px calc(30px + env(safe-area-inset-bottom,0px));animation-name:sheetUp}
+  .toc-sheet ol{font-size:18px}
+
+  .quote{padding-block:120px}
+  .quote blockquote{font-size:31px}
+  .quote cite{font-size:19px}
+
+  /* Autorka: malý oblouk se sluncem vedle jména */
+  .author{grid-template-columns:92px 1fr;gap:0 18px;align-items:center;justify-items:start;text-align:left;padding-block:72px 64px}
+  .author>div:not(.portrait){display:contents}
+  .portrait{width:92px}
+  .portrait::before{top:-14px}
+  .portrait img{border-radius:60px 60px 8px 8px;box-shadow:0 14px 24px -16px rgba(19,60,70,.6)}
+  .author h2{font-size:38px;margin:0}
+  .author .big,.author p,.author .link{grid-column:1/-1}
+  .author .big{margin:24px 0 16px;font-size:23px}
+  .author .link{justify-self:start}
+
+  /* Nákup: text, kniha na horizontu, tlačítko na moři (jako úvod) */
+  .offer-grid{padding-top:64px}
+  .offer h2{font-size:34px;margin-bottom:14px}
+  .offer .price b{font-size:52px}
+  .offer .note{font-size:16px;margin:16px auto 4px}
+  .offer-copy{padding-bottom:24px}
+  .offer-copy .btn,.offer-copy .pay{display:none}
+  .offer-scene{--sun:min(300px,78vw)}
+  .offer .book{width:min(42vw,170px)}
+  .offer-scene::before{bottom:56px}
+  .offer-sea{height:auto;margin-top:-56px;padding:82px 20px 30px}
+  .offer-sea-cta{display:block;position:relative;z-index:3;text-align:center}
+  .offer-sea-cta .btn{width:100%;max-width:360px;padding-block:17px}
+  .offer-sea-cta .pay{color:#E3F1F1;opacity:1;margin-top:14px;font-size:13.5px}
+
+  .faq{padding-block:8px 64px}
+  .faq h2{font-size:36px}
+  .faq summary{font-size:18px;padding-block:18px}
+  footer{padding-block:24px 110px}
+}
+@keyframes sunM{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@media (max-width:360px){
+  .hero h1{font-size:52px}
+  .step{flex-basis:88%}
+}
+/* Telefon na šířku: kompaktní úvod, aby bylo tlačítko vidět hned. */
+@media (max-height:520px) and (orientation:landscape){
+  .hero{padding-top:80px}
+  .hero .tag{display:none}
+  .hero h1{font-size:64px}
+  .scene .lead{padding-bottom:14px;font-size:20px}
+  .buybox{padding-bottom:26px}
+  .frame{top:8vh;--fh:84vh}
+  .step{min-height:84vh}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal.wait{opacity:1;transform:none}
+}
+
+/* Tlačítko, když se kniha zatím (nebo právě) neprodává */
+.btn-off{background:rgba(19,80,95,.12);color:var(--sea);box-shadow:none;cursor:default}
+.btn-off:hover{transform:none;box-shadow:none}
+.btn-light.btn-off{background:rgba(255,247,236,.82)}
+/* Právní dokumenty v panelu (stejný panel jako obsah) */
+.legal-draft{margin-bottom:18px;padding:12px 14px;border-radius:8px;background:rgba(231,126,90,.12);color:var(--ink);font-size:14px}
+#legal-body p{margin-bottom:14px;color:var(--soft);font-size:16px}
+footer nav button{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+footer nav button:hover{color:var(--cream)}
+.seller{margin-top:26px;font-size:13px;opacity:.75}
+/* Děkovací stránka po zaplacení */
+.thanks{min-height:100vh;min-height:100svh;display:grid;align-content:center;justify-items:center;text-align:center;gap:22px;padding:60px 20px 0;overflow:hidden;background:linear-gradient(180deg,#FFF3DF 0%,#FCE1BE 45%,var(--peach) 75%)}
+.thanks h1{font-size:clamp(40px,6vw,72px);max-width:14ch}
+.thanks p{max-width:520px;color:var(--soft)}
+.thanks .scene{margin-top:20px}
+.thanks .book{width:150px}

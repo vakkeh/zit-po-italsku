@@ -1,29 +1,27 @@
-// UPRAVUJTE ZDE. Po změně spusťte: node build.mjs
-// Prázdné údaje jsou záměrné. Web nevytváří neexistující nabídku ani potvrzení odběru.
-export const SHOPTET_PRODUCT_URL = ''; // Sem vložte úplnou HTTPS adresu produktu.
+// UPRAVUJTE ZDE. Po změně spusťte: npm run build
+// Texty stránky jsou v src/index.html. Sem patří jen prodejní údaje a odkazy.
+// Do konfigurace nikdy nevkládejte API klíče ani jiné tajné údaje; jde o veřejný web.
+
+// Odkaz na platbu ze Stripe (Payment Link), např. 'https://buy.stripe.com/…'.
+// Prázdný = web nákup nenabízí a tlačítka ukazují „Brzy v prodeji“.
+export const STRIPE_PAYMENT_LINK = '';
+
 export default {
-  product: { name: 'Žít po italsku', subtitle: 'Umění zpomalit, cítit a opravdu žít', author: 'Linda Valešová', price: null, availability: 'pripravujeme', dispatchDate: '', format: '135 × 210 mm', pages: '160', binding: 'Měkká lepená vazba V2', parametersNote: 'Parametry podle podkladů k tisku; před prodejem potvrdíme finální podobu.', isbn: '', checkoutMode: 'product', verifiedCartUrl: '' },
-  // availability: pripravujeme | skladem | predprodej | vyprodano
-  // TODO: ověřit přímé vložení do košíku pro konkrétní Shoptet. Není použita domnělá syntaxe.
-  siteUrl: 'https://janvales74-coder.github.io/zit-po-italsku-web', // Finální veřejná HTTPS adresa bez koncového lomítka (SEO a OG).
-  projectUrl: '', contactEmail: '', instagramUrl: '', facebookUrl: '',
-  seller: { name: '', ico: '', address: '' },
-  newsletter: { endpoint: '', emailField: 'email', consentField: 'consent', hiddenFields: {}, fallbackEmail: '', privacyReady: false },
-  authorPhoto: '', // Vlastní fotografie do assets/; prázdné = označené místo pro fotografii.
-  // Odstíny převzaté z dodané obálky + tmavší textové protějšky pro kontrast.
-  colors: { paper: '#FCF9F2', sea: '#219DAC', sky: '#3971A4', wheat: '#F1D16E', olive: '#5F8273', ink: '#253E3B', teal: '#205C58', muted: '#596660' },
-  copy: {
-    nav: ['O knize', 'Nahlédněte dovnitř', 'O autorce'], order: 'Objednat knihu',
-    hero: { eyebrow: 'KNIHA OD LINDY VALEŠOVÉ', title: ['Žít', 'po italsku'], intro: 'Kousek italské lehkosti do obyčejných dní. Osobní pozvání zpomalit a vrátit se blíž k sobě.', secondary: 'Nahlédnout do knihy', note: 'Pro chvíle, které chcete opravdu prožít.', seal: ['MÉNĚ SPĚCHU.', 'VÍCE ŽIVOTA.'] },
-    ribbon: ['Pomalejší rána', 'Radost z maličkostí', 'Blízkost u jednoho stolu', 'Více prostoru pro sebe'],
-    about: { eyebrow: 'MALÉ POZVÁNÍ K VELKÉ ZMĚNĚ', title: 'Možná nehledáte Itálii.\nMožná hledáte sebe.', paragraphs: ['Někdy svůj život tak dobře zvládáme, že ho zapomínáme prožívat. Linda v Itálii objevila jiný rytmus: kávu, která je zastavením, jídlo, které je setkáním, a radost, která nemusí čekat na hotovou práci.', 'Tahle kniha vás zve k laskavějšímu pohledu na čas, vztahy i sebe samotné. K italské lehkosti nepotřebujete letenku. Stačí jí nechat trochu místa ve vlastním dni.'], themes: [['Zpomalit', 'Najít svůj vlastní rytmus.'], ['Vnímat', 'Vrátit pozornost maličkostem.'], ['Opravdu žít', 'Neodkládat radost na potom.']] },
-    inside: { eyebrow: 'MEZI STRÁNKAMI', title: 'Trochu Itálie.\nO něco víc vás.', intro: '16 kapitol o obyčejném životě, který stojí za pozornost. A 30 malých rozhodnutí, kterými můžete začít už dnes.', cards: [ { image: 'ranni-kava', alt: 'Ilustrace ženy s šálkem kávy u italského kavárenského stolku', number: '02', title: 'Ráno, které určuje den', text: 'Otevřít okno. Vypít kávu bez telefonu. Nechat první minuty dne patřit sobě.' }, { image: 'u-stolu', alt: 'Ilustrace společného stolování na terase s výhledem na italské pobřeží', number: '03', title: 'Jídlo jako rituál, ne jako povinnost', text: 'Sednout si ke stolu. Ochutnávat. Být spolu. I z obyčejné večeře se může stát malý rituál.' }, { image: 'chvile-pro-sebe', alt: 'Ilustrace odpočívající ženy s knihou na lehátku nad mořem', number: '08', title: 'Il dolce far niente', text: 'Dovolit si chvíli nic nedělat. Bez výčitek a bez potřeby každou minutu nějak využít.' } ], chapters: ['Itálie není země. Je to tempo.', 'Ráno, které určuje den', 'Jídlo jako rituál, ne jako povinnost', 'Styl jako energie', 'Komunikace, která nikam nespěchá', 'Práce bez permanentního napětí', 'Volný čas bez pocitu viny', 'Il dolce far niente', 'Italská dlouhověkost: co za ní skutečně je', 'Nedokonalost, která nechá člověka dýchat', 'Radost jako způsob života', 'Italové a rodina', 'Jak Itálie změnila moje vztahy', 'Samota, která není prázdná', 'Kde je domov, když se člověk změní', 'Jak si vytvořit vlastní italský svět odkudkoli'] },
-    excerpt: { eyebrow: 'NA CHVÍLI SE ZASTAVTE', quote: 'Vaše italská cesta nezačíná v Itálii.\nZačíná ve chvíli, kdy se rozhodnete žít jinak.', second: 'Život nezačne, až budete mít víc času.\nZačne ve chvíli, kdy mu ten čas dáte.', attribution: 'Linda Valešová · z knihy Žít po italsku', more: 'Ještě pár slov z knihy' },
-    author: { eyebrow: 'O AUTORCE', title: 'Linda Valešová', intro: 'Itálie jako láska.\nA jako cesta zpátky k sobě.', paragraphs: ['Italštině a italské kultuře se věnuje více než třináct let. Postupně v nich našla víc než krásná místa a nový jazyk: jiný pohled na čas, vztahy, práci i radost z obyčejných dní.', 'Kniha vznikla z osobních zkušeností, ranních káv, dlouhých obědů a rozhovorů, které nikam nespěchaly. Prostřednictvím projektu Objev Itálii Linda sdílí inspiraci, jak si kousek téhle lehkosti přenést i domů.'], link: 'Poznat projekt Objev Itálii', placeholder: 'Prostor pro fotografii Lindy' },
-    purchase: { eyebrow: 'VAŠE CHVÍLE PRO SEBE', title: 'Italská lehkost\nzačíná první stránkou.', intro: 'Kniha, ke které se můžete vracet. Třeba s kávou v ruce a telefonem o kousek dál.', unconfigured: 'Prodej připravujeme. Cenu a odkaz na objednávku brzy doplníme.', payment: 'Způsoby platby doplníme podle nastavení e-shopu.', shipping: 'Dopravu po ČR, její cenu a dobu doručení doplníme před zahájením prodeje.', returns: 'Při nákupu přes internet máte jako spotřebitel zpravidla právo odstoupit od smlouvy do 14 dnů od převzetí. Podrobnosti budou v obchodních podmínkách e-shopu.', safety: 'Objednávka i bezpečná platba probíhají v e-shopu Shoptet.' },
-    reviews: { eyebrow: 'OHLASY ČTENÁŘŮ', title: 'Tady bude místo\npro vaše příběhy.', text: 'První čtenářské dojmy teprve přijdou. Možná tu jednou bude i ten váš.', placeholders: ['Váš první dojem', 'Váš oblíbený okamžik', 'Vaše malá změna'] },
-    newsletter: { eyebrow: 'DOPISY S VŮNÍ ITÁLIE', title: 'Kousek Itálie\ndo vaší schránky.', text: 'Nechte nám e-mail, pokud chcete dostávat novinky o knize a inspiraci z projektu Objev Itálii.', button: 'Chci kousek Itálie', notifyConsent: 'Souhlasím se zpracováním e-mailu pouze pro upozornění na naskladnění knihy. Souhlas mohu kdykoli odvolat.', consent: 'Souhlasím se zpracováním e-mailu pro zasílání novinek. Souhlas mohu kdykoli odvolat.', unavailable: 'Odběr novinek právě připravujeme. Zatím se tu můžete jen na chvíli zastavit.' },
-    footer: { tagline: 'Umění zpomalit, cítit a opravdu žít.', contactMissing: 'Kontaktní údaje připravujeme.', legalNotice: 'Právní dokumenty jsou zatím pracovní šablony. Před zahájením prodeje budou doplněny.' },
-    thanks: { title: 'Děkujeme. Vaše italská chvíle je o stránku blíž.', text: 'Potvrzení objednávky a informace k platbě najdete v e-mailu z našeho e-shopu. Než kniha dorazí, zkuste si dát jednu kávu bez telefonu. Jen tak, pro sebe.' }
-  }
+  product: {
+    name: 'Žít po italsku',
+    subtitle: 'Umění zpomalit, cítit a opravdu žít',
+    author: 'Linda Valešová',
+    price: 399, // Kč včetně DPH. Ukázková cena, před spuštěním potvrďte.
+    availability: 'pripravujeme', // pripravujeme | skladem | predprodej | vyprodano
+    dispatchDays: 2, // skladem: do kolika pracovních dnů knihu odešleme
+    dispatchDate: '', // predprodej: datum první expedice YYYY-MM-DD
+    binding: 'Brožovaná',
+    pages: 160,
+    format: '135 × 210 mm',
+    isbn: '',
+  },
+  siteUrl: 'https://janvales74-coder.github.io/zit-po-italsku-web', // Finální HTTPS adresa bez koncového lomítka (SEO a sdílení).
+  projectUrl: '', // Objev Itálii
+  contactEmail: '',
+  seller: { name: '', ico: '', address: '' }, // Prodávající (patička, právní dokumenty)
 };
