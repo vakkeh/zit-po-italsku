@@ -1,6 +1,6 @@
 # Nasazení
 
-Nejdříve projděte seznam k doplnění v PROPOJENI-A-PRAVO.md, nastavte `siteUrl` a spusťte `npm run build` a `npm test`. Zdrojové přílohy ani rukopis nevystavujte na hosting. Publikuje se pouze `dist/`.
+Nejdříve projděte nastavení plateb a dopravy v PLATBY-A-ZASILKOVNA.md, nastavte `siteUrl` a spusťte `npm run build` a `npm test`. Zdrojové přílohy ani rukopis nevystavujte na hosting. Publikuje se pouze `dist/`.
 
 ## Netlify
 
@@ -22,9 +22,9 @@ Doporučené hlavičky: `X-Content-Type-Options: nosniff`, `Referrer-Policy: str
 
 ## Domény a návaznost
 
-Doporučená struktura: onepager na `zitpoitalsku.cz`, e-shop na `objednavka.zitpoitalsku.cz` (příklady, vlastnictví ani dostupnost nejsou ověřené). Připojte subdoménu přímo v Shoptetu a použijte jeho aktuálně předepsané DNS záznamy. Nezapisujte cizí IP odhadem. Oba weby musí mít platné HTTPS. Vyberte kanonickou www/ne-www variantu a druhou přesměrujte.
+Doporučená struktura: web na vlastní doméně, např. `zitpoitalsku.cz` (příklad, vlastnictví ani dostupnost nejsou ověřené). Platba běží na stránce Stripe a pokladnu obsluhují serverové funkce na stejné doméně (Netlify), subdoména pro e-shop není potřeba. Nezapisujte cizí IP odhadem. Web musí mít platné HTTPS. Vyberte kanonickou www/ne-www variantu a druhou přesměrujte.
 
-Po připojení domény nastavte `siteUrl` a produktovou HTTPS adresu, znovu sestavte. Ověřte metadata sociálních sítí (absolutní URL obálky), přechod s UTM na produkt, skutečný checkout a návrat na hlavní web z e-shopu. Nové veřejné nasazení a nákup nebyly v cloudové přípravě provedeny.
+Po připojení domény nastavte `siteUrl`, ve Stripe webhook na `https://<doména>/api/stripe-webhook` a znovu nasaďte. Návrat po platbě na `dekujeme.html` nastavuje server sám. Ověřte metadata sociálních sítí (absolutní URL obálky), zkušební platbu přes Stripe a návrat na děkovací stránku. Nové veřejné nasazení a nákup nebyly v cloudové přípravě provedeny.
 
 ## Živá prohlídka přes GitHub Pages
 
